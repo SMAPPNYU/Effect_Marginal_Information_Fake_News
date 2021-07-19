@@ -24,9 +24,9 @@ There are five directories:
 
 (1) code: In the code directory there lies two R files that produce important figures and tables in the main document and the supplementary methods and materials:
 
-(1.1) Figures_Tables_in_Main_Paper.R: Produces tables and figures for the main paper.
+(1.1) figures.R: Produces tables and figures for the main paper.
 
-(1.2) Figures_Tables_In_Appendix.R: Produces tables figures and tables for the supplementary materials.
+(1.2) tables.R: Produces tables figures and tables for the supplementary materials.
 
 (2) data: Contains all data needed to 
 
