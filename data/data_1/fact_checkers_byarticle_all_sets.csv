@@ -1,0 +1,166 @@
+,date,article_type,article_number,mode,in_robust_mode,no_false,all_true_set,any_true_set,no_true,all_false_set,any_false_set
+0,nov 13,1,1,CND,,False,False,False,True,False,True
+1,nov 13,2,2,T,True,True,True,True,False,False,False
+2,nov 13,3,3,CND,,False,False,False,True,False,True
+3,nov 13,4,4,T,True,True,True,True,False,False,False
+4,nov 13,5,5,T,True,True,True,True,False,False,False
+5,nov 14,1,6,T,False,False,False,True,False,False,False
+6,nov 14,2,7,FM,True,False,False,False,True,True,True
+7,nov 14,3,8,T,True,False,False,True,False,False,False
+8,nov 14,4,9,T,False,False,False,True,False,False,False
+9,nov 14,5,10,T,True,True,True,True,False,False,False
+10,nov 18,1,11,FM,True,False,False,False,True,True,True
+11,nov 18,2,12,FM,True,False,False,False,False,False,True
+12,nov 18,3,13,T,True,True,True,True,False,False,False
+13,nov 18,4,14,T,True,True,True,True,False,False,False
+14,nov 18,5,15,T,True,True,True,True,False,False,False
+15,nov 19,1,16,FM,True,False,False,False,True,True,True
+16,nov 19,2,17,No Mode!,,False,False,False,False,False,False
+17,nov 19,3,18,FM,True,False,False,False,False,False,True
+18,nov 19,4,19,T,True,True,True,True,False,False,False
+19,nov 19,5,20,T,True,True,True,True,False,False,False
+20,nov 20,1,21,FM,True,False,False,False,True,True,True
+21,nov 20,2,22,T,True,True,True,True,False,False,False
+22,nov 20,3,23,FM,True,False,False,False,True,True,True
+23,nov 20,4,24,T,True,False,False,True,False,False,False
+24,nov 20,5,25,T,True,True,True,True,False,False,False
+25,nov 21,1,26,FM,True,False,False,False,True,True,True
+26,nov 21,2,27,T,True,False,False,True,False,False,False
+27,nov 21,3,28,FM,True,False,False,False,True,True,True
+28,nov 21,4,29,T,True,True,True,True,False,False,False
+29,nov 21,5,30,T,True,True,True,True,False,False,False
+30,dec 2,1,31,T,True,True,True,True,False,False,False
+31,dec 2,2,32,No Mode!,,False,False,False,False,False,False
+32,dec 2,3,33,FM,True,False,False,False,True,True,True
+33,dec 2,4,34,T,True,False,False,True,False,False,False
+34,dec 2,5,35,T,True,True,True,True,False,False,False
+35,dec 3,1,36,FM,True,False,False,False,False,False,True
+36,dec 3,2,37,FM,False,False,False,False,True,False,True
+37,dec 3,3,38,T,False,False,False,True,False,False,False
+38,dec 3,4,39,T,True,True,True,True,False,False,False
+39,dec 3,5,40,T,True,True,True,True,False,False,False
+40,dec 4,1,41,FM,True,False,False,False,True,True,True
+41,dec 4,2,42,FM,True,False,False,False,False,False,True
+42,dec 4,3,43,CND,,False,False,False,False,False,False
+43,dec 4,4,44,T,True,False,False,True,False,False,False
+44,dec 4,5,45,T,True,True,True,True,False,False,False
+45,dec 5,1,46,T,False,False,False,True,False,False,False
+46,dec 5,2,47,T,False,True,False,True,False,False,False
+47,dec 5,3,48,T,True,True,True,True,False,False,False
+48,dec 5,4,49,T,True,True,True,True,False,False,False
+49,dec 5,5,50,T,True,True,True,True,False,False,False
+50,dec 9,1,51,T,True,False,False,True,False,False,False
+51,dec 9,2,52,T,True,False,False,True,False,False,False
+52,dec 9,3,53,T,True,False,False,True,False,False,False
+53,dec 9,4,54,T,True,True,True,True,False,False,False
+54,dec 9,5,55,T,True,True,True,True,False,False,False
+55,dec 10,1,56,FM,True,False,False,False,True,True,True
+56,dec 10,2,57,FM,False,False,False,False,False,False,True
+57,dec 10,3,58,T,True,True,True,True,False,False,False
+58,dec 10,4,59,T,True,True,True,True,False,False,False
+59,dec 10,5,60,T,True,True,True,True,False,False,False
+60,dec 11,1,61,FM,True,False,False,False,False,False,True
+61,dec 11,2,62,T,True,False,False,True,False,False,False
+62,dec 11,3,63,FM,False,False,False,False,False,False,True
+63,dec 11,4,64,T,True,True,True,True,False,False,False
+64,dec 11,5,65,T,True,True,True,True,False,False,False
+65,dec 12,1,66,FM,True,False,False,False,False,False,True
+66,dec 12,2,67,T,True,True,True,True,False,False,False
+67,dec 12,3,68,T,True,True,True,True,False,False,False
+68,dec 12,4,69,T,True,False,False,True,False,False,False
+69,dec 12,5,70,T,True,False,False,True,False,False,False
+70,dec 16,1,71,FM,True,False,False,False,False,False,True
+71,dec 16,2,72,T,True,False,False,True,False,False,False
+72,dec 16,3,73,T,True,False,False,True,False,False,False
+73,dec 16,4,74,T,True,False,False,True,False,False,False
+74,dec 16,5,75,T,True,True,True,True,False,False,False
+75,dec 17,1,76,FM,True,False,False,False,False,False,True
+76,dec 17,2,77,No Mode!,,True,False,True,False,False,False
+77,dec 17,3,78,No Mode!,,True,False,True,False,False,False
+78,dec 17,4,79,T,True,False,False,True,False,False,False
+79,dec 17,5,80,T,True,True,True,True,False,False,False
+80,dec 18,1,81,FM,True,False,False,False,False,False,True
+81,dec 18,2,82,T,True,True,True,True,False,False,False
+82,dec 18,3,83,No Mode!,,False,False,False,False,False,False
+83,dec 18,4,84,T,True,False,False,True,False,False,False
+84,dec 18,5,85,T,True,True,True,True,False,False,False
+85,dec 19,1,86,FM,False,False,False,False,False,False,True
+86,dec 19,2,87,T,True,True,True,True,False,False,False
+87,dec 19,3,88,T,False,False,False,True,False,False,False
+88,dec 19,4,89,T,True,True,True,True,False,False,False
+89,dec 19,5,90,T,True,True,True,True,False,False,False
+90,jan 6,1,91,FM,True,False,False,False,True,True,True
+91,jan 6,2,92,T,False,False,False,True,False,False,False
+92,jan 6,3,93,T,True,True,True,True,False,False,False
+93,jan 6,4,94,T,True,True,True,True,False,False,False
+94,jan 6,5,95,T,True,False,False,True,False,False,False
+95,jan 7,1,96,T,True,True,True,True,False,False,False
+96,jan 7,2,97,T,False,False,False,True,False,False,False
+97,jan 7,3,98,T,True,True,True,True,False,False,False
+98,jan 7,4,99,T,True,True,True,True,False,False,False
+99,jan 7,5,100,T,True,True,True,True,False,False,False
+100,jan 8,1,101,FM,True,False,False,False,True,True,True
+101,jan 8,2,102,T,True,False,False,True,False,False,False
+102,jan 8,3,103,T,False,False,False,True,False,False,False
+103,jan 8,4,104,FM,True,False,False,False,True,True,True
+104,jan 8,5,105,T,True,True,True,True,False,False,False
+105,jan 9,1,106,T,True,False,False,True,False,False,False
+106,jan 9,2,107,No Mode!,,False,False,False,False,False,False
+107,jan 9,3,108,T,True,False,False,True,False,False,False
+108,jan 9,4,109,T,True,True,True,True,False,False,False
+109,jan 9,5,110,T,True,True,True,True,False,False,False
+110,jan 13,1,111,FM,True,False,False,False,False,False,True
+111,jan 13,2,112,FM,True,False,False,False,True,True,True
+112,jan 13,3,113,T,True,True,True,True,False,False,False
+113,jan 13,4,114,T,True,False,False,True,False,False,False
+114,jan 13,5,115,T,True,True,True,True,False,False,False
+115,jan 14,1,116,T,False,False,False,True,False,False,False
+116,jan 14,2,117,No Mode!,,False,False,False,False,False,False
+117,jan 14,3,118,T,True,False,False,True,False,False,False
+118,jan 14,4,119,T,True,True,True,True,False,False,False
+119,jan 14,5,120,T,True,True,True,True,False,False,False
+120,jan 15,1,121,CND,,False,False,False,False,False,False
+121,jan 15,2,122,T,True,False,False,True,False,False,False
+122,jan 15,3,123,T,True,True,True,True,False,False,False
+123,jan 15,4,124,T,True,True,True,True,False,False,False
+124,jan 15,5,125,T,True,True,True,True,False,False,False
+125,jan 21,1,126,FM,True,False,False,False,True,True,True
+126,jan 21,2,127,T,True,False,False,True,False,False,False
+127,jan 21,3,128,FM,False,False,False,False,True,False,True
+128,jan 21,4,129,T,True,True,True,True,False,False,False
+129,jan 21,5,130,T,True,True,True,True,False,False,False
+130,jan 22,1,131,No Mode!,,False,False,False,True,False,True
+131,jan 22,2,132,T,False,False,False,True,False,False,False
+132,jan 22,3,133,No Mode!,,False,False,False,True,False,True
+133,jan 22,4,134,T,True,True,True,True,False,False,False
+134,jan 22,5,135,T,True,True,True,True,False,False,False
+135,jan 23,1,136,T,True,True,True,True,False,False,False
+136,jan 23,2,137,No Mode!,,False,False,False,False,False,False
+137,jan 23,3,138,T,True,True,True,True,False,False,False
+138,jan 23,4,139,T,True,True,True,True,False,False,False
+139,jan 23,5,140,T,True,True,True,True,False,False,False
+140,jan 27,1,141,T,True,False,False,True,False,False,False
+141,jan 27,2,142,T,True,True,True,True,False,False,False
+142,jan 27,3,143,FM,True,False,False,False,True,True,True
+143,jan 27,4,144,No Mode!,,False,False,False,False,False,False
+144,jan 27,5,145,T,True,True,True,True,False,False,False
+145,jan 28,1,146,FM,True,False,False,False,False,False,True
+146,jan 28,2,147,No Mode!,,False,False,False,False,False,False
+147,jan 28,3,148,T,False,False,False,True,False,False,False
+148,jan 28,4,149,T,True,False,False,True,False,False,False
+149,jan 28,5,150,T,True,True,True,True,False,False,False
+150,feb 4,1,151,FM,False,False,False,False,True,False,True
+151,feb 4,2,152,No Mode!,,False,False,False,False,False,False
+152,feb 4,3,153,FM,True,False,False,False,True,True,True
+153,feb 4,4,154,T,True,False,False,True,False,False,False
+154,feb 4,5,155,T,True,True,True,True,False,False,False
+155,feb 5,1,156,FM,True,False,False,False,True,True,True
+156,feb 5,2,157,T,True,True,True,True,False,False,False
+157,feb 5,3,158,FM,True,False,False,False,True,True,True
+158,feb 5,4,159,T,True,True,True,True,False,False,False
+159,feb 5,5,160,T,True,True,True,True,False,False,False
+160,feb 6,1,161,No Mode!,,False,False,False,False,False,False
+161,feb 6,2,162,FM,True,False,False,False,False,False,True
+162,feb 6,3,163,FM,True,False,False,False,True,True,True
+163,feb 6,4,164,T,True,True,True,True,False,False,False
+164,feb 6,5,165,T,True,True,True,True,False,False,False
