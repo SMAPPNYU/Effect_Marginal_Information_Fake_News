@@ -16,11 +16,15 @@ library(xtable)
 library(irr)
 
 ############################# Load Data ###################################################
+
+
 #Pull in this data: Search Experiment 1: Study 1:
-Misl_False_Search_MF <- read_csv('.\\data\\MF_Search_Exp_Misl_False.csv',
+Misl_False_Search_MF <- read_csv('.//data//MF_Search_Exp_Misl_False.csv',
                                  col_types = cols(
                                    .default = col_character()
                                  ))
+
+
 
 Misl_False_Search_MF$Match_FC <- ifelse(Misl_False_Search_MF$Evaluation == 'FM',1,0)
 Misl_False_Search_MF$Match_FC <- ifelse(Misl_False_Search_MF$Evaluation == 'Misl/False',1,Misl_False_Search_MF$Match_FC)
@@ -28,7 +32,7 @@ Misl_False_Search_MF$Match_FC <- ifelse(Misl_False_Search_MF$Evaluation == 'Misl
 Misl_False_Search_MF$Susc_FN <- ifelse(Misl_False_Search_MF$Evaluation == 'T',1,0)
 Misl_False_Search_MF$Susc_FN <- ifelse(Misl_False_Search_MF$Evaluation == 'True',1,Misl_False_Search_MF$Susc_FN)
 
-Misl_False_Search_T <- read_csv('.\\data\\T_Search_Exp_Misl_False.csv',
+Misl_False_Search_T <- read_csv('.//data//T_Search_Exp_Misl_False.csv',
                                 col_types = cols(
                                   .default = col_character()
                                 ))
@@ -42,7 +46,7 @@ Misl_False_Search_T$Susc_FN <- ifelse(Misl_False_Search_T$Evaluation == 'FM',1,0
 Misl_False_Search_T$Susc_FN <- ifelse(Misl_False_Search_T$Evaluation == 'Misl/False',1,Misl_False_Search_T$Susc_FN)
 
 #Pull in this data: Search Experiment 2: Study 1:
-Data_Bef_Aft_MF <- read_csv('.\\data\\Data_Bef_Aft_Misl_False.csv',
+Data_Bef_Aft_MF <- read_csv('.//data//Data_Bef_Aft_Misl_False.csv',
                             col_types = cols(
                               .default = col_character()
                             ))
@@ -56,7 +60,7 @@ Data_Bef_Aft_MF$Susc_FN <- ifelse(Data_Bef_Aft_MF$Evaluation == 'T',1,0)
 Data_Bef_Aft_MF$Susc_FN <- ifelse(Data_Bef_Aft_MF$Evaluation == 'True',1,Data_Bef_Aft_MF$Susc_FN)
 
 #Pull in this data: Search Experiment 2: Study 1:
-Data_Bef_Aft_T <- read_csv('.\\data\\Data_Bef_Aft_True.csv',
+Data_Bef_Aft_T <- read_csv('.//data//Data_Bef_Aft_True.csv',
                            col_types = cols(
                              .default = col_character()
                            ))
@@ -70,7 +74,7 @@ Data_Bef_Aft_T$Susc_FN <- ifelse(Data_Bef_Aft_T$Evaluation == 'Misl/False',1,Dat
 
 
 #Data from False/Misleading Articles from Study 2 and Experiment 2:
-Data_Bef_Aft_Covid <- read_csv('.\\data\\Experiment_2_Study_2_Misl_False.csv',
+Data_Bef_Aft_Covid <- read_csv('.//data//Experiment_2_Study_2_Misl_False.csv',
                                col_types = cols(
                                  .default = col_character()
                                ))
@@ -83,7 +87,7 @@ Data_Bef_Aft_Covid$Susc_FN <- ifelse(Data_Bef_Aft_Covid$Evaluation == 'T',1,0)
 Data_Bef_Aft_Covid$Susc_FN <- ifelse(Data_Bef_Aft_Covid$Evaluation == 'True',1,Data_Bef_Aft_Covid$Susc_FN)
 
 #Data from False/Misleading Articles from Study 2 and Experiment 2:
-Data_Bef_Aft_Covid_T <- read_csv('.\\data\\Experiment_2_Study_2_T.csv',
+Data_Bef_Aft_Covid_T <- read_csv('.//data//Experiment_2_Study_2_T.csv',
                                  col_types = cols(
                                    .default = col_character()
                                  ))
@@ -98,7 +102,7 @@ Data_Bef_Aft_Covid_T$Susc_FN <- ifelse(Data_Bef_Aft_Covid_T$Evaluation == 'Misl/
 
 
 
-Misl_False_Pay <- read_csv('.\\data\\Paid_Survey_Data_FM.csv',
+Misl_False_Pay <- read_csv('.//data//Paid_Survey_Data_FM.csv',
                            col_types = cols(
                              .default = col_character()
                            ))
@@ -108,7 +112,7 @@ Misl_False_Pay <- read_csv('.\\data\\Paid_Survey_Data_FM.csv',
 Misl_False_Pay$Match_FC <- ifelse(Misl_False_Pay$Evaluation == 'FM',1,0)
 Misl_False_Pay$Susc_FN <- ifelse(Misl_False_Pay$Evaluation == 'T',1,0)
 
-True_Pay <- read_csv('.\\data\\Paid_Survey_Data_T.csv',
+True_Pay <- read_csv('.//data//Paid_Survey_Data_T.csv',
                      col_types = cols(
                        .default = col_character()
                      ))
@@ -131,7 +135,7 @@ Misl_False_Pay$Congruent_Word <- ifelse(is.na(Misl_False_Pay$Ideology_Score),NA,
 
 
 
-Experiment_3_Data <- read_csv('.\\data\\Exp_3_Data.csv',
+Experiment_3_Data <- read_csv('.//data//Exp_3_Data.csv',
                               col_types = cols(
                                 .default = col_character()
                               ))
@@ -140,7 +144,7 @@ Experiment_3_Data <- read_csv('.\\data\\Exp_3_Data.csv',
 Experiment_3_Data$Match_FC <- ifelse(Experiment_3_Data$Evaluation == 'FM',1,0)
 Experiment_3_Data$Susc_FN <- ifelse(Experiment_3_Data$Evaluation == 'T',1,0)
 
-Experiment_3_Data_T <- read_csv('.\\data\\Exp_3_Data_True.csv',
+Experiment_3_Data_T <- read_csv('.//data//Exp_3_Data_True.csv',
                                 col_types = cols(
                                   .default = col_character()
                                 ))
@@ -630,7 +634,6 @@ Search_Articles_12 <- unique(MF_Exp_3$Article_day)
 #(Hypothesis 1.1) Standardized: Effect of Headline
 Exp_3_Data <- rbind(Experiment_3_Data,Experiment_3_Data_T)
 
-
 Exp_3_Data$Headline <- as.numeric(Exp_3_Data$Headline)
 Exp_3_Data$Source <- as.numeric(Exp_3_Data$Source)
 Exp_3_Data$Article <- as.numeric(Exp_3_Data$Article)
@@ -646,7 +649,6 @@ MF_Exp_3 <- na.omit(MF_Exp_3)
 
 MF_Exp_3$Match_FC <- as.numeric(MF_Exp_3$Match_FC)
 MF_Exp_3$Age <- as.numeric(MF_Exp_3$Age)
-MF_Exp_3$Standardize <- as.numeric(MF_Exp_3$Standardize)
 MF_Exp_3$Education_Score <- as.numeric(MF_Exp_3$Education_Score)
 MF_Exp_3$Income_Score <- as.numeric(MF_Exp_3$Income_Score)
 MF_Exp_3$Ideology_Score <- as.numeric(MF_Exp_3$Ideology_Score)
@@ -701,7 +703,6 @@ MF_Exp_3 <- na.omit(MF_Exp_3)
 
 MF_Exp_3$Match_FC <- as.numeric(MF_Exp_3$Match_FC)
 MF_Exp_3$Age <- as.numeric(MF_Exp_3$Age)
-MF_Exp_3$Standardize <- as.numeric(MF_Exp_3$Standardize)
 MF_Exp_3$Education_Score <- as.numeric(MF_Exp_3$Education_Score)
 MF_Exp_3$Income_Score <- as.numeric(MF_Exp_3$Income_Score)
 MF_Exp_3$Ideology_Score <- as.numeric(MF_Exp_3$Ideology_Score)
@@ -762,7 +763,7 @@ write(stargazer(lin_results_Headline_MF_T_1,
                 add.lines = list(c("Observations",Obs_Tab_1_1,Obs_Tab_4_1,Obs_Tab_4_2),
                                  c("R-squared",Rsq_Tab_1_1,Rsq_Tab_4_1,Rsq_Tab_4_2),
                                  c("Adj. R-squared",A_Rsq_Tab_1_1,A_Rsq_Tab_4_1,A_Rsq_Tab_4_2),
-                                 c("F-Statistic",F_Tab_1_1,F_Tab_4_1,F_Tab_4_2))),file='.\\tables\\Table_1_JEPS.txt')
+                                 c("F-Statistic",F_Tab_1_1,F_Tab_4_1,F_Tab_4_2))),file='.//tables//Table_1_JEPS.txt')
 
 
 
@@ -785,7 +786,7 @@ write(stargazer(lin_results_Standardize_MF_T_1,
                 add.lines = list(c("Observations",Obs_Tab_1_2,Obs_Tab_1_3,Obs_Tab_3_1,Obs_Tab_3_2,Obs_Tab_3_5,Obs_Tab_3_6),
                                  c("R-squared",Rsq_Tab_1_2,Rsq_Tab_1_3,Rsq_Tab_3_1,Rsq_Tab_3_2,Rsq_Tab_3_5,Rsq_Tab_3_6),
                                  c("Adj. R-squared",A_Rsq_Tab_1_2,A_Rsq_Tab_1_3,A_Rsq_Tab_3_1,A_Rsq_Tab_3_2,A_Rsq_Tab_3_5,A_Rsq_Tab_3_6),
-                                 c("F-Statistic",F_Tab_1_2,F_Tab_1_3,F_Tab_3_1,F_Tab_3_2,F_Tab_3_5,F_Tab_3_6))),file='.\\tables\\Table_2_JEPS.txt')
+                                 c("F-Statistic",F_Tab_1_2,F_Tab_1_3,F_Tab_3_1,F_Tab_3_2,F_Tab_3_5,F_Tab_3_6))),file='.//tables//Table_2_JEPS.txt')
 
 
 
@@ -847,7 +848,7 @@ colnames(mat_P) <- Hyp_list
 print(xtable(mat_P,
              caption='Unadjusted and Adjusted P-Values Testing Each Hypothesis'),
       caption.placement = 'top',
-      file='.\\tables\\Multiple_Hyp.txt')
+      file='.//tables//Multiple_Hyp.txt')
 
 
 
@@ -864,7 +865,6 @@ Misl_False_Search_1 = na.omit(Misl_False_Search_1)
 
 
 Misl_False_Search_1$Likert_Evaluation <- as.numeric(Misl_False_Search_1$Likert_Evaluation)
-Misl_False_Search_1$Match_FC <- as.numeric(Misl_False_Search_1$Match_FC)
 Misl_False_Search_1$Age <- as.numeric(Misl_False_Search_1$Age)
 Misl_False_Search_1$Treat_Search <- as.numeric(Misl_False_Search_1$Treat_Search)
 Misl_False_Search_1$Education_Score <- as.numeric(Misl_False_Search_1$Education_Score)
@@ -976,8 +976,6 @@ MF_Exp_3 <- Full_Data %>% select(Likert_Evaluation,Standardize,Source,Education_
 MF_Exp_3 <- na.omit(MF_Exp_3)
 
 MF_Exp_3$Likert_Evaluation <- as.numeric(MF_Exp_3$Likert_Evaluation)
-MF_Exp_3$Susc_FN <- as.numeric(MF_Exp_3$Susc_FN)
-MF_Exp_3$Match_FC <- as.numeric(MF_Exp_3$Match_FC)
 MF_Exp_3$Age <- as.numeric(MF_Exp_3$Age)
 MF_Exp_3$Standardize <- as.numeric(MF_Exp_3$Standardize)
 MF_Exp_3$Education_Score <- as.numeric(MF_Exp_3$Education_Score)
@@ -1032,16 +1030,12 @@ Full_Data <- Full_Data %>% filter(Article == 1 | Article == 2 | Article == 3)
 
 
 
-unique(Full_Data$Evaluation)
-
 
 MF_Exp_3 <- Full_Data %>% select(Likert_Evaluation,Standardize,Source,Education_Score,Age,Gender,Income_Score,Dummy_Congruence,Familiar_Dummy,Article_day,ResponseId,Ideology_Score)
 #Remove NA values:
 MF_Exp_3 <- na.omit(MF_Exp_3)
 
 MF_Exp_3$Likert_Evaluation <- as.numeric(MF_Exp_3$Likert_Evaluation)
-MF_Exp_3$Susc_FN <- as.numeric(MF_Exp_3$Susc_FN)
-MF_Exp_3$Match_FC <- as.numeric(MF_Exp_3$Match_FC)
 MF_Exp_3$Age <- as.numeric(MF_Exp_3$Age)
 MF_Exp_3$Standardize <- as.numeric(MF_Exp_3$Standardize)
 MF_Exp_3$Education_Score <- as.numeric(MF_Exp_3$Education_Score)
@@ -1098,8 +1092,6 @@ MF_Exp_3 <- Full_Data %>% select(Likert_Evaluation,Standardize,Source,Education_
 MF_Exp_3 <- na.omit(MF_Exp_3)
 
 MF_Exp_3$Likert_Evaluation <- as.numeric(MF_Exp_3$Likert_Evaluation)
-MF_Exp_3$Susc_FN <- as.numeric(MF_Exp_3$Susc_FN)
-MF_Exp_3$Match_FC <- as.numeric(MF_Exp_3$Match_FC)
 MF_Exp_3$Age <- as.numeric(MF_Exp_3$Age)
 MF_Exp_3$Standardize <- as.numeric(MF_Exp_3$Standardize)
 MF_Exp_3$Education_Score <- as.numeric(MF_Exp_3$Education_Score)
@@ -1153,7 +1145,7 @@ write(stargazer(lin_results_Standardize_MF_T_1,
                 add.lines = list(c("Observations",Obs_Tab_1_2,Obs_Tab_1_3,Obs_Tab_3_1,Obs_Tab_3_2,Obs_Tab_3_5,Obs_Tab_3_6),
                                  c("R-squared",Rsq_Tab_1_2,Rsq_Tab_1_3,Rsq_Tab_3_1,Rsq_Tab_3_2,Rsq_Tab_3_5,Rsq_Tab_3_6),
                                  c("Adj. R-squared",A_Rsq_Tab_1_2,A_Rsq_Tab_1_3,A_Rsq_Tab_3_1,A_Rsq_Tab_3_2,A_Rsq_Tab_3_5,A_Rsq_Tab_3_6),
-                                 c("F-Statistic",F_Tab_1_2,F_Tab_1_3,F_Tab_3_1,F_Tab_3_2,F_Tab_3_5,F_Tab_3_6))),file='.\\tables\\Table_3_JEPS.txt')
+                                 c("F-Statistic",F_Tab_1_2,F_Tab_1_3,F_Tab_3_1,F_Tab_3_2,F_Tab_3_5,F_Tab_3_6))),file='.//tables//Table_3_JEPS.txt')
 
 
 
@@ -1173,8 +1165,6 @@ Misl_False_Search_1 <- Search_Separate %>% select(Match_FC,Treat_Search,Educatio
 #Remove NA values:
 Misl_False_Search_1 = na.omit(Misl_False_Search_1)
 
-
-Misl_False_Search_1$Susc_FN <- as.numeric(Misl_False_Search_1$Susc_FN)
 Misl_False_Search_1$Match_FC <- as.numeric(Misl_False_Search_1$Match_FC)
 Misl_False_Search_1$Age <- as.numeric(Misl_False_Search_1$Age)
 Misl_False_Search_1$Treat_Search <- as.numeric(Misl_False_Search_1$Treat_Search)
@@ -1212,7 +1202,6 @@ Misl_False_Search_1 <- Search_Separate %>% select(Match_FC,Treat_Search,Educatio
 Misl_False_Search_1 = na.omit(Misl_False_Search_1)
 
 
-Misl_False_Search_1$Susc_FN <- as.numeric(Misl_False_Search_1$Susc_FN)
 Misl_False_Search_1$Match_FC <- as.numeric(Misl_False_Search_1$Match_FC)
 Misl_False_Search_1$Age <- as.numeric(Misl_False_Search_1$Age)
 Misl_False_Search_1$Treat_Search <- as.numeric(Misl_False_Search_1$Treat_Search)
@@ -1240,6 +1229,11 @@ Search_Articles_3 <- unique(Misl_False_Search_1$Article_day)
 
 
 
+
+
+
+
+
 #(Hypothesis 1.1) Standardized: Effect of Headline
 Exp_3_Data <- rbind(Experiment_3_Data,Experiment_3_Data_T)
 
@@ -1252,15 +1246,12 @@ Exp_3_Data$Ideology_Score <- as.numeric(Exp_3_Data$Ideology_Score)
 
 Full_Data <- Exp_3_Data %>% filter(Source == 0)
 
-MF_Exp_3 <- Full_Data %>% select(Match_FC,Headline,Education_Score,Age,Gender,Income_Score,Dummy_Congruence,Familiar_Dummy,Article_day,ResponseId,Ideology_Score,family=binomial)
+MF_Exp_3 <- Full_Data %>% select(Match_FC,Headline,Education_Score,Age,Gender,Income_Score,Dummy_Congruence,Familiar_Dummy,Article_day,ResponseId,Ideology_Score)
 #Remove NA values:
 MF_Exp_3 <- na.omit(MF_Exp_3)
 
-MF_Exp_3$T_Dummy <- as.numeric(MF_Exp_3$T_Dummy)
-MF_Exp_3$Susc_FN <- as.numeric(MF_Exp_3$Susc_FN)
 MF_Exp_3$Match_FC <- as.numeric(MF_Exp_3$Match_FC)
 MF_Exp_3$Age <- as.numeric(MF_Exp_3$Age)
-MF_Exp_3$Standardize <- as.numeric(MF_Exp_3$Standardize)
 MF_Exp_3$Education_Score <- as.numeric(MF_Exp_3$Education_Score)
 MF_Exp_3$Income_Score <- as.numeric(MF_Exp_3$Income_Score)
 MF_Exp_3$Ideology_Score <- as.numeric(MF_Exp_3$Ideology_Score)
@@ -1304,12 +1295,8 @@ MF_Exp_3 <- Full_Data %>% select(Match_FC,Headline,Education_Score,Age,Gender,In
 #Remove NA values:
 MF_Exp_3 <- na.omit(MF_Exp_3)
 
-
-MF_Exp_3$T_Dummy <- as.numeric(MF_Exp_3$T_Dummy)
-MF_Exp_3$Susc_FN <- as.numeric(MF_Exp_3$Susc_FN)
 MF_Exp_3$Match_FC <- as.numeric(MF_Exp_3$Match_FC)
 MF_Exp_3$Age <- as.numeric(MF_Exp_3$Age)
-MF_Exp_3$Standardize <- as.numeric(MF_Exp_3$Standardize)
 MF_Exp_3$Education_Score <- as.numeric(MF_Exp_3$Education_Score)
 MF_Exp_3$Income_Score <- as.numeric(MF_Exp_3$Income_Score)
 MF_Exp_3$Ideology_Score <- as.numeric(MF_Exp_3$Ideology_Score)
@@ -1352,7 +1339,7 @@ write(stargazer(lin_results_Headline_MF_T_1,
                 add.lines = list(c("Observations",Obs_Tab_1_1,Obs_Tab_4_1,Obs_Tab_4_2),
                                  c("R-squared",Rsq_Tab_1_1,Rsq_Tab_4_1,Rsq_Tab_4_2),
                                  c("Adj. R-squared",A_Rsq_Tab_1_1,A_Rsq_Tab_4_1,A_Rsq_Tab_4_2))),
-                file='.\\tables\\Table_4_JEPS.txt')
+                file='.//tables//Table_4_JEPS.txt')
 
 
 
@@ -1367,7 +1354,7 @@ write(stargazer(lin_results_Headline_MF_T_1,
 
 ########################################################### Load in Control Data
 #Specify the name of the csv file of data that you are uploading.
-data_file = ".\\data\\Control_Survey.csv"
+data_file = ".//data//Control_Survey.csv"
 #Read in the csv file
 Control_Survey <- read_csv(data_file,
                            col_types = cols(
@@ -1396,7 +1383,7 @@ unique(Control_Survey$day)
 ########################################################### Load in FAct Checkers Data
 
 #Specify the name of the csv file of data that you are uploading.
-data_file = ".\\data\\fact_checkers_byarticle_all_sets.csv"
+data_file = ".//data//fact_checkers_byarticle_all_sets.csv"
 #Read in the csv file
 FC_Final_Data <- read_csv(data_file,
                           col_types = cols(
@@ -1414,7 +1401,7 @@ colnames(FC_Final_Data)[3] <- 'Article'
 ########################################################### Load in Experiment Data
 
 #Specify the name of the csv file of data that you are uploading.
-data_file = ".\\data\\Paid_Survey.csv"
+data_file = ".//data//Paid_Survey.csv"
 
 #Read in the csv file
 Experiment_Survey <- read_csv(data_file,
@@ -1509,7 +1496,7 @@ Final_Data <- Final_Data %>%
            day == 'feb 5' |
            day == 'feb 6')
 
-article_topics_clean <- read.csv('.\\data\\article_topics_clean.csv')
+article_topics_clean <- read.csv('.//data//article_topics_clean.csv')
 
 Final_Data <- merge(Final_Data,article_topics_clean,by.x='article_number',by.y='article_num')
 
@@ -1570,7 +1557,7 @@ ggplot(data = Misl_False_Data, aes(x=Evaluation, y=Prop,fill=factor(Paid_Word)))
         legend.text = element_text(size=16))
 
 
-ggsave('.\\figures\\Paid_Prop_FM.png',width = 9)
+ggsave('.//figures//Paid_Prop_FM.png',width = 9)
 
 
 
@@ -1615,7 +1602,7 @@ ggplot(data = True_Data, aes(x=Evaluation, y=Prop,fill=factor(Paid_Word))) +
         legend.text = element_text(size=16))
 
 
-ggsave('.\\figures\\Paid_Prop_T.png',width = 9)
+ggsave('.//figures//Paid_Prop_T.png',width = 9)
 
 
 
@@ -1626,7 +1613,7 @@ ggsave('.\\figures\\Paid_Prop_T.png',width = 9)
 
 
 #Inter-Rater Reliability Scores:
-Article_Ratings <- read.csv('.\\data\\Ratings_Ideology_Topic_1.csv')
+Article_Ratings <- read.csv('.//data//Ratings_Ideology_Topic_1.csv')
 colnames(Article_Ratings)[1] <- 'Article_num'
 
 # Articles in Experiments:
@@ -1681,7 +1668,7 @@ colnames(Table_6_matrix) <- c('Coding Task','Group of Articles','Agreement','Fle
 #Write table to txt file:
 write(print(xtable(Table_6_matrix,caption='Inter-Rater Reliability Statistics for Ideological Perspective of Articles'),
             include.rownames=FALSE,
-            caption.placement='top'),file='.\\tables\\Table_Agreement.txt')
+            caption.placement='top'),file='.//tables//Table_Agreement.txt')
 
 
 
@@ -1699,7 +1686,7 @@ unique(Misl_False_Search_T$day)
 unique(Experiment_3_Data_T$day)
 
 
-FCer_Data <- read.csv('.\\data\\Fact_Checker_Data_Master.csv')
+FCer_Data <- read.csv('.//data//Fact_Checker_Data_Master.csv')
 
 FCer_Data <- FCer_Data %>% select(Date,Pariticipant_1_Eval,Pariticipant_2_Eval,Pariticipant_3_Eval,Pariticipant_4_Eval,Pariticipant_5_Eval,Pariticipant_6_Eval)
 
@@ -1743,7 +1730,7 @@ colnames(Table_6_matrix) <- c('Coding Task','Group of Articles','Agreement','Fle
 #Write table to txt file:
 write(print(xtable(Table_6_matrix,caption='Inter-Rater Reliability Statistics for Veracity Evaluations of Articles'),
             include.rownames=FALSE,
-            caption.placement='top'),file='.\\tables\\Table_FC_Agreement.txt')
+            caption.placement='top'),file='.//tables//Table_FC_Agreement.txt')
 
 
 
@@ -1807,7 +1794,7 @@ write(stargazer(lin_results_Model_Compare_Measures,
                 add.lines = list(c("Observations",Obs_Tab_1_1),
                                  c("R-squared",Rsq_Tab_1_1),
                                  c("Adj. R-squared",A_Rsq_Tab_1_1),
-                                 c("F-Statistic",F_Tab_1_1))),file='.\\tables\\Table_Compare_Measures.txt')
+                                 c("F-Statistic",F_Tab_1_1))),file='.//tables//Table_Compare_Measures.txt')
 
 
 

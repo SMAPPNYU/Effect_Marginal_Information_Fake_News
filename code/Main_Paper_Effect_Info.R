@@ -14,7 +14,7 @@ library(rsq)
 
 ############################# Load Data ###################################################
 
-Misl_False_Search_MF <- read_csv('.\\data\\MF_Search_Exp_Misl_False.csv',
+Misl_False_Search_MF <- read_csv('.//data//MF_Search_Exp_Misl_False.csv',
                                  col_types = cols(
                                    .default = col_character()
                                  ))
@@ -25,7 +25,7 @@ Misl_False_Search_MF$Match_FC <- ifelse(Misl_False_Search_MF$Evaluation == 'Misl
 Misl_False_Search_MF$Susc_FN <- ifelse(Misl_False_Search_MF$Evaluation == 'T',1,0)
 Misl_False_Search_MF$Susc_FN <- ifelse(Misl_False_Search_MF$Evaluation == 'True',1,Misl_False_Search_MF$Susc_FN)
 
-Misl_False_Search_T <- read_csv('.\\data\\T_Search_Exp_Misl_False.csv',
+Misl_False_Search_T <- read_csv('.//data//T_Search_Exp_Misl_False.csv',
                                 col_types = cols(
                                   .default = col_character()
                                 ))
@@ -39,7 +39,7 @@ Misl_False_Search_T$Susc_FN <- ifelse(Misl_False_Search_T$Evaluation == 'FM',1,0
 Misl_False_Search_T$Susc_FN <- ifelse(Misl_False_Search_T$Evaluation == 'Misl/False',1,Misl_False_Search_T$Susc_FN)
 
 #Pull in this data: Search Experiment 2: Study 1:
-Data_Bef_Aft_MF <- read_csv('.\\data\\Data_Bef_Aft_Misl_False.csv',
+Data_Bef_Aft_MF <- read_csv('.//data//Data_Bef_Aft_Misl_False.csv',
                             col_types = cols(
                               .default = col_character()
                             ))
@@ -53,7 +53,7 @@ Data_Bef_Aft_MF$Susc_FN <- ifelse(Data_Bef_Aft_MF$Evaluation == 'T',1,0)
 Data_Bef_Aft_MF$Susc_FN <- ifelse(Data_Bef_Aft_MF$Evaluation == 'True',1,Data_Bef_Aft_MF$Susc_FN)
 
 #Pull in this data: Search Experiment 2: Study 1:
-Data_Bef_Aft_T <- read_csv('.\\data\\Data_Bef_Aft_True.csv',
+Data_Bef_Aft_T <- read_csv('.//data//Data_Bef_Aft_True.csv',
                            col_types = cols(
                              .default = col_character()
                            ))
@@ -67,7 +67,7 @@ Data_Bef_Aft_T$Susc_FN <- ifelse(Data_Bef_Aft_T$Evaluation == 'Misl/False',1,Dat
 
 
 #Data from False/Misleading Articles from Study 2 and Experiment 2:
-Data_Bef_Aft_Covid <- read_csv('.\\data\\Experiment_2_Study_2_Misl_False.csv',
+Data_Bef_Aft_Covid <- read_csv('.//data//Experiment_2_Study_2_Misl_False.csv',
                                col_types = cols(
                                  .default = col_character()
                                ))
@@ -80,7 +80,7 @@ Data_Bef_Aft_Covid$Susc_FN <- ifelse(Data_Bef_Aft_Covid$Evaluation == 'T',1,0)
 Data_Bef_Aft_Covid$Susc_FN <- ifelse(Data_Bef_Aft_Covid$Evaluation == 'True',1,Data_Bef_Aft_Covid$Susc_FN)
 
 #Data from False/Misleading Articles from Study 2 and Experiment 2:
-Data_Bef_Aft_Covid_T <- read_csv('.\\data\\Experiment_2_Study_2_T.csv',
+Data_Bef_Aft_Covid_T <- read_csv('.//data//Experiment_2_Study_2_T.csv',
                                  col_types = cols(
                                    .default = col_character()
                                  ))
@@ -95,7 +95,7 @@ Data_Bef_Aft_Covid_T$Susc_FN <- ifelse(Data_Bef_Aft_Covid_T$Evaluation == 'Misl/
 
 
 
-Misl_False_Pay <- read_csv('.\\data\\Paid_Survey_Data_FM.csv',
+Misl_False_Pay <- read_csv('.//data//Paid_Survey_Data_FM.csv',
                            col_types = cols(
                              .default = col_character()
                            ))
@@ -105,7 +105,7 @@ Misl_False_Pay <- read_csv('.\\data\\Paid_Survey_Data_FM.csv',
 Misl_False_Pay$Match_FC <- ifelse(Misl_False_Pay$Evaluation == 'FM',1,0)
 Misl_False_Pay$Susc_FN <- ifelse(Misl_False_Pay$Evaluation == 'T',1,0)
 
-True_Pay <- read_csv('.\\data\\Paid_Survey_Data_T.csv',
+True_Pay <- read_csv('.//data//Paid_Survey_Data_T.csv',
                      col_types = cols(
                        .default = col_character()
                      ))
@@ -128,7 +128,7 @@ Misl_False_Pay$Congruent_Word <- ifelse(is.na(Misl_False_Pay$Ideology_Score),NA,
 
 
 
-Experiment_3_Data <- read_csv('.\\data\\Exp_3_Data.csv',
+Experiment_3_Data <- read_csv('.//data//Exp_3_Data.csv',
                               col_types = cols(
                                 .default = col_character()
                               ))
@@ -137,7 +137,7 @@ Experiment_3_Data <- read_csv('.\\data\\Exp_3_Data.csv',
 Experiment_3_Data$Match_FC <- ifelse(Experiment_3_Data$Evaluation == 'FM',1,0)
 Experiment_3_Data$Susc_FN <- ifelse(Experiment_3_Data$Evaluation == 'T',1,0)
 
-Experiment_3_Data_T <- read_csv('.\\data\\Exp_3_Data_True.csv',
+Experiment_3_Data_T <- read_csv('.//data//Exp_3_Data_True.csv',
                                 col_types = cols(
                                   .default = col_character()
                                 ))
@@ -284,8 +284,6 @@ Misl_False_Search_1 <- Search_Separate %>% select(Match_FC,Treat_Search,Educatio
 #Remove NA values:
 Misl_False_Search_1 = na.omit(Misl_False_Search_1)
 
-
-Misl_False_Search_1$Susc_FN <- as.numeric(Misl_False_Search_1$Susc_FN)
 Misl_False_Search_1$Match_FC <- as.numeric(Misl_False_Search_1$Match_FC)
 Misl_False_Search_1$Age <- as.numeric(Misl_False_Search_1$Age)
 Misl_False_Search_1$Treat_Search <- as.numeric(Misl_False_Search_1$Treat_Search)
@@ -333,7 +331,6 @@ Misl_False_Search_1 = na.omit(Misl_False_Search_1)
 
 
 Misl_False_Search_1$Susc_FN <- as.numeric(Misl_False_Search_1$Susc_FN)
-Misl_False_Search_1$Match_FC <- as.numeric(Misl_False_Search_1$Match_FC)
 Misl_False_Search_1$Age <- as.numeric(Misl_False_Search_1$Age)
 Misl_False_Search_1$Treat_Search <- as.numeric(Misl_False_Search_1$Treat_Search)
 Misl_False_Search_1$Education_Score <- as.numeric(Misl_False_Search_1$Education_Score)
@@ -382,7 +379,6 @@ Misl_False_Search_1 <- Search_Separate %>% select(Match_FC,Treat_Search,Educatio
 Misl_False_Search_1 = na.omit(Misl_False_Search_1)
 
 
-Misl_False_Search_1$Susc_FN <- as.numeric(Misl_False_Search_1$Susc_FN)
 Misl_False_Search_1$Match_FC <- as.numeric(Misl_False_Search_1$Match_FC)
 Misl_False_Search_1$Age <- as.numeric(Misl_False_Search_1$Age)
 Misl_False_Search_1$Treat_Search <- as.numeric(Misl_False_Search_1$Treat_Search)
@@ -429,16 +425,12 @@ Full_Data$Standardize <- ifelse(Full_Data$Source == 0,1,0)
 Full_Data <- Full_Data %>% filter(Article == 1 | Article == 2 | Article == 3)
 Full_Data$T_Dummy <- ifelse(Full_Data$Evaluation == 'T',1,0)
 
-unique(Full_Data$Evaluation)
-
 
 MF_Exp_3 <- Full_Data %>% select(T_Dummy,Standardize,Source,Education_Score,Age,Gender,Income_Score,Familiar_Dummy,Article_day,ResponseId,Ideology_Score)
 #Remove NA values:
 MF_Exp_3 <- na.omit(MF_Exp_3)
 
 MF_Exp_3$T_Dummy <- as.numeric(MF_Exp_3$T_Dummy)
-MF_Exp_3$Susc_FN <- as.numeric(MF_Exp_3$Susc_FN)
-MF_Exp_3$Match_FC <- as.numeric(MF_Exp_3$Match_FC)
 MF_Exp_3$Age <- as.numeric(MF_Exp_3$Age)
 MF_Exp_3$Standardize <- as.numeric(MF_Exp_3$Standardize)
 MF_Exp_3$Education_Score <- as.numeric(MF_Exp_3$Education_Score)
@@ -493,8 +485,6 @@ MF_Exp_3 <- Full_Data %>% select(T_Dummy,Standardize,Source,Education_Score,Age,
 MF_Exp_3 <- na.omit(MF_Exp_3)
 
 MF_Exp_3$T_Dummy <- as.numeric(MF_Exp_3$T_Dummy)
-MF_Exp_3$Susc_FN <- as.numeric(MF_Exp_3$Susc_FN)
-MF_Exp_3$Match_FC <- as.numeric(MF_Exp_3$Match_FC)
 MF_Exp_3$Age <- as.numeric(MF_Exp_3$Age)
 MF_Exp_3$Standardize <- as.numeric(MF_Exp_3$Standardize)
 MF_Exp_3$Education_Score <- as.numeric(MF_Exp_3$Education_Score)
@@ -546,20 +536,11 @@ Full_Data <- Full_Data %>% filter(Article == 1 | Article == 2 | Article == 3)
 Full_Data$T_Dummy <- ifelse(Full_Data$Evaluation == 'T',1,0)
 
 
-
-
-
-
-unique(Full_Data$Evaluation)
-
-
 MF_Exp_3 <- Full_Data %>% select(T_Dummy,Standardize,Source,Education_Score,Age,Gender,Income_Score,Dummy_Congruence,Familiar_Dummy,Article_day,ResponseId,Ideology_Score)
 #Remove NA values:
 MF_Exp_3 <- na.omit(MF_Exp_3)
 
 MF_Exp_3$T_Dummy <- as.numeric(MF_Exp_3$T_Dummy)
-MF_Exp_3$Susc_FN <- as.numeric(MF_Exp_3$Susc_FN)
-MF_Exp_3$Match_FC <- as.numeric(MF_Exp_3$Match_FC)
 MF_Exp_3$Age <- as.numeric(MF_Exp_3$Age)
 MF_Exp_3$Standardize <- as.numeric(MF_Exp_3$Standardize)
 MF_Exp_3$Education_Score <- as.numeric(MF_Exp_3$Education_Score)
@@ -603,7 +584,6 @@ Exp_3_Data <- rbind(Experiment_3_Data,Experiment_3_Data_T)
 Exp_3_Data$Headline <- as.numeric(Exp_3_Data$Headline)
 Exp_3_Data$Source <- as.numeric(Exp_3_Data$Source)
 Exp_3_Data$Article <- as.numeric(Exp_3_Data$Article)
-Exp_3_Data$Congruent_Source <- as.numeric(Exp_3_Data$Congruent_Source)
 Exp_3_Data$Ideology_Score <- as.numeric(Exp_3_Data$Ideology_Score)
 
 Full_Data <- Exp_3_Data %>% filter(Headline == 1)
@@ -611,16 +591,12 @@ Full_Data$Standardize <- ifelse(Full_Data$Source == 0,1,0)
 Full_Data <- Full_Data %>% filter(Article == 4 | Article == 5)
 Full_Data$T_Dummy <- ifelse(Full_Data$Evaluation == 'T',1,0)
 
-unique(Full_Data$Evaluation)
-
 
 MF_Exp_3 <- Full_Data %>% select(T_Dummy,Standardize,Source,Education_Score,Age,Gender,Income_Score,Dummy_Congruence,Familiar_Dummy,Article_day,ResponseId,Ideology_Score)
 #Remove NA values:
 MF_Exp_3 <- na.omit(MF_Exp_3)
 
 MF_Exp_3$T_Dummy <- as.numeric(MF_Exp_3$T_Dummy)
-MF_Exp_3$Susc_FN <- as.numeric(MF_Exp_3$Susc_FN)
-MF_Exp_3$Match_FC <- as.numeric(MF_Exp_3$Match_FC)
 MF_Exp_3$Age <- as.numeric(MF_Exp_3$Age)
 MF_Exp_3$Standardize <- as.numeric(MF_Exp_3$Standardize)
 MF_Exp_3$Education_Score <- as.numeric(MF_Exp_3$Education_Score)
@@ -672,11 +648,8 @@ MF_Exp_3 <- Full_Data %>% select(Match_FC,Headline,Education_Score,Age,Gender,In
 #Remove NA values:
 MF_Exp_3 <- na.omit(MF_Exp_3)
 
-MF_Exp_3$T_Dummy <- as.numeric(MF_Exp_3$T_Dummy)
-MF_Exp_3$Susc_FN <- as.numeric(MF_Exp_3$Susc_FN)
 MF_Exp_3$Match_FC <- as.numeric(MF_Exp_3$Match_FC)
 MF_Exp_3$Age <- as.numeric(MF_Exp_3$Age)
-MF_Exp_3$Standardize <- as.numeric(MF_Exp_3$Standardize)
 MF_Exp_3$Education_Score <- as.numeric(MF_Exp_3$Education_Score)
 MF_Exp_3$Income_Score <- as.numeric(MF_Exp_3$Income_Score)
 MF_Exp_3$Ideology_Score <- as.numeric(MF_Exp_3$Ideology_Score)
@@ -719,7 +692,6 @@ Exp_3_Data <- rbind(Experiment_3_Data,Experiment_3_Data_T)
 Exp_3_Data$Headline <- as.numeric(Exp_3_Data$Headline)
 Exp_3_Data$Source <- as.numeric(Exp_3_Data$Source)
 Exp_3_Data$Article <- as.numeric(Exp_3_Data$Article)
-Exp_3_Data$Congruent_Source <- as.numeric(Exp_3_Data$Congruent_Source)
 Exp_3_Data$Ideology_Score <- as.numeric(Exp_3_Data$Ideology_Score)
 
 Full_Data <- Exp_3_Data %>% filter(Source == 1)
@@ -728,12 +700,8 @@ MF_Exp_3 <- Full_Data %>% select(Match_FC,Headline,Education_Score,Age,Gender,In
 #Remove NA values:
 MF_Exp_3 <- na.omit(MF_Exp_3)
 
-
-MF_Exp_3$T_Dummy <- as.numeric(MF_Exp_3$T_Dummy)
-MF_Exp_3$Susc_FN <- as.numeric(MF_Exp_3$Susc_FN)
 MF_Exp_3$Match_FC <- as.numeric(MF_Exp_3$Match_FC)
 MF_Exp_3$Age <- as.numeric(MF_Exp_3$Age)
-MF_Exp_3$Standardize <- as.numeric(MF_Exp_3$Standardize)
 MF_Exp_3$Education_Score <- as.numeric(MF_Exp_3$Education_Score)
 MF_Exp_3$Income_Score <- as.numeric(MF_Exp_3$Income_Score)
 MF_Exp_3$Ideology_Score <- as.numeric(MF_Exp_3$Ideology_Score)
@@ -842,43 +810,36 @@ ggplot(data = d_matrix, aes(x = x, y = Coefficients)) +
   scale_x_continuous(" \n",breaks=c(0.1,0.2,0.3,0.4),labels=Coef_names,limits=c(0.0,0.5)) +
   coord_flip()
 
-ggsave('.\\figures\\Coefficients_1.png',height=12,width=9)
+ggsave('.//figures//Coefficients_1.png',height=12,width=9)
 
 
 
 Coef_names <- c('(H3.3) External Information\n(False/Misleading News)\n(Source and Full Text)',
-                '(H2.3) Source\n(Low-Quality News)\n(Headline/Lede)',
                 '(H2.4) Source\n(Mainstream News)\n(Headline/Lede)',
-                '(H2.1) Source\n(Low-Quality News)\n(Full Text)',
-                '(H2.2) Source\n(Mainstream News)\n(Full Text)')
-
-
-fit_Search_MF_T_2$coefficients[2]/MF_1_2_Bars[1,3]
-fit_Standardize_MF_T_5$coefficients[2]/MF_2_5_Bars[2,3]
-fit_Standardize_MF_T_6$coefficients[2]/MF_2_6_Bars[2,3]
-fit_Standardize_MF_T_1$coefficients[2]/MF_2_1_Bars[2,3]
-fit_Standardize_MF_T_2$coefficients[2]/MF_2_2_Bars[2,3]
+                '(H2.3) Source\n(Low-Quality News)\n(Headline/Lede)',
+                '(H2.2) Source\n(Mainstream News)\n(Full Text)',
+                '(H2.1) Source\n(Low-Quality News)\n(Full Text)')
 
 Coefficients <- c(fit_Search_MF_T_2$coefficients[2],
-                  fit_Standardize_MF_T_5$coefficients[2],
                   fit_Standardize_MF_T_6$coefficients[2],
-                  fit_Standardize_MF_T_1$coefficients[2],
-                  fit_Standardize_MF_T_2$coefficients[2])
+                  fit_Standardize_MF_T_5$coefficients[2],
+                  fit_Standardize_MF_T_2$coefficients[2],
+                  fit_Standardize_MF_T_1$coefficients[2])
 
 
 CI_Upper <- c(CI_Search_MF_T_2[2,2],
-              CI_Standardize_MF_T_5[2,2],
               CI_Standardize_MF_T_6[2,2],
-              CI_Standardize_MF_T_1[2,2],
-              CI_Standardize_MF_T_2[2,2])            
+              CI_Standardize_MF_T_5[2,2],
+              CI_Standardize_MF_T_2[2,2],
+              CI_Standardize_MF_T_1[2,2])            
 
 
 
 CI_Lower <- c(CI_Search_MF_T_2[2,1],
-              CI_Standardize_MF_T_5[2,1],
               CI_Standardize_MF_T_6[2,1],
-              CI_Standardize_MF_T_1[2,1],
-              CI_Standardize_MF_T_2[2,1])
+              CI_Standardize_MF_T_5[2,1],
+              CI_Standardize_MF_T_2[2,1],
+              CI_Standardize_MF_T_1[2,1])
 
 
 
@@ -928,7 +889,7 @@ ggplot(data = d_matrix, aes(x = x, y = Coefficients)) +
   coord_flip()
 
 
-ggsave('.\\figures\\Coefficients_2.png',height=12,width=9)
+ggsave('.//figures//Coefficients_2.png',height=12,width=9)
 
 
 
