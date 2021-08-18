@@ -1,0 +1,31 @@
+
+% Table created by stargazer v.5.2.2 by Marek Hlavac, Harvard University. E-mail: hlavac at fas.harvard.edu
+% Date and time: Wed, Jul 28, 2021 - 15:32:43
+% Requires LaTeX packages: dcolumn 
+\begin{table}[!htbp] \centering 
+  \caption{Measuring Correlation Between Evaluating an Article as True on the Ordinal Measure of Perceived Veracity} 
+  \label{} 
+\begin{tabular}{@{\extracolsep{5pt}}lD{.}{.}{-3} } 
+\\[-1.8ex]\hline 
+\hline \\[-1.8ex] 
+ & \multicolumn{1}{c}{\textit{Dependent variable:}} \\ 
+\cline{2-2} 
+\\[-1.8ex] & \multicolumn{1}{c}{ } \\ 
+ & \multicolumn{1}{c}{(1)} \\ 
+\hline \\[-1.8ex] 
+ Categorical Measure (True) & 2.501^{***} \\ 
+  & (0.014) \\ 
+  & \\ 
+ Constant & 3.585^{***} \\ 
+  & (0.011) \\ 
+  & \\ 
+\hline \\[-1.8ex] 
+Observations & 27215 \\ 
+R-squared & 0.527 \\ 
+Adj. R-squared & 0.527 \\ 
+F-Statistic & 30279.203^{***} \\ 
+\hline 
+\hline \\[-1.8ex] 
+\textit{Note:}  & \multicolumn{1}{r}{$^{*}$p$<$0.05; $^{**}$p$<$0.01; $^{***}$p$<$0.001} \\ 
+\end{tabular} 
+\end{table} 

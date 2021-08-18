@@ -1,0 +1,14 @@
+% latex table generated in R 3.6.1 by xtable 1.8-4 package
+% Wed Jul 28 15:32:43 2021
+\begin{table}[ht]
+\centering
+\caption{Inter-Rater Reliability Statistics for Ideological Perspective of Articles} 
+\begin{tabular}{llll}
+  \hline
+Coding Task & Group of Articles & Agreement & Fleiss Kappa \\ 
+  \hline
+Partisan lean of of articles (4 categories) & All Articles & 57.14 & 0.62 \\ 
+   \hline
+\end{tabular}
+\end{table}
+

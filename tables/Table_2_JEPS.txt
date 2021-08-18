@@ -1,0 +1,46 @@
+
+% Table created by stargazer v.5.2.2 by Marek Hlavac, Harvard University. E-mail: hlavac at fas.harvard.edu
+% Date and time: Wed, Jul 28, 2021 - 15:32:36
+% Requires LaTeX packages: dcolumn 
+\begin{table}[!htbp] \centering 
+  \caption{Measuring Effect of Additional Information on Rating an Article as True} 
+  \label{} 
+\begin{tabular}{@{\extracolsep{5pt}}lD{.}{.}{-3} D{.}{.}{-3} D{.}{.}{-3} D{.}{.}{-3} D{.}{.}{-3} } 
+\\[-1.8ex]\hline 
+\hline \\[-1.8ex] 
+ & \multicolumn{5}{c}{\textit{Dependent variable:}} \\ 
+\cline{2-6} 
+\\[-1.8ex] & \multicolumn{5}{c}{ } \\ 
+ & \multicolumn{1}{c}{(H2.1)} & \multicolumn{1}{c}{(H2.2)} & \multicolumn{1}{c}{(H2.3)} & \multicolumn{1}{c}{(H2.4)} & \multicolumn{1}{c}{(H3.3)} \\ 
+\hline \\[-1.8ex] 
+ Treatment (Source) & -0.071^{***} & 0.043^{**} & -0.063^{***} & -0.018 &  \\ 
+  & (0.015) & (0.013) & (0.015) & (0.015) &  \\ 
+  & & & & & \\ 
+ Treatment (Search) &  &  &  &  & 0.072^{***} \\ 
+  &  &  &  &  & (0.014) \\ 
+  & & & & & \\ 
+ Education & -0.011 & 0.005 & -0.008 & 0.010 & 0.021^{***} \\ 
+  & (0.007) & (0.006) & (0.007) & (0.007) & (0.006) \\ 
+  & & & & & \\ 
+ Age & 0.0001 & 0.0001 & -0.001^{*} & -0.001^{*} & -0.0002 \\ 
+  & (0.0005) & (0.0004) & (0.001) & (0.001) & (0.0004) \\ 
+  & & & & & \\ 
+ Gender (Male) & 0.044^{**} & 0.033^{*} & 0.057^{***} & 0.035^{*} & 0.035^{*} \\ 
+  & (0.015) & (0.014) & (0.015) & (0.015) & (0.014) \\ 
+  & & & & & \\ 
+ Income & -0.004 & 0.006 & 0.007 & -0.001 & -0.002 \\ 
+  & (0.008) & (0.008) & (0.009) & (0.009) & (0.008) \\ 
+  & & & & & \\ 
+ Ideology & -0.017^{***} & 0.002 & -0.004 & 0.014^{**} & -0.028^{***} \\ 
+  & (0.004) & (0.004) & (0.005) & (0.004) & (0.004) \\ 
+  & & & & & \\ 
+\hline \\[-1.8ex] 
+Observations & 2275 & 6269 & 4975 & 4141 & 4749 \\ 
+R-squared & 0.018 & 0.021 & 0.011 & 0.006 & 0.01 \\ 
+Adj. R-squared & 0.015 & 0.02 & 0.009 & 0.004 & 0.008 \\ 
+F-Statistic & 6.01^{***} & 18.978^{***} & 7.726^{***} & 3.271^{***} & 6.543^{***} \\ 
+\hline 
+\hline \\[-1.8ex] 
+\textit{Note:}  & \multicolumn{5}{r}{$^{*}$p$<$0.05; $^{**}$p$<$0.01; $^{***}$p$<$0.001} \\ 
+\end{tabular} 
+\end{table} 

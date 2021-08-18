@@ -1,0 +1,15 @@
+% latex table generated in R 3.6.2 by xtable 1.8-4 package
+% Thu Jul 15 21:36:20 2021
+\begin{table}[ht]
+\centering
+\caption{Search Experiment - Inter-Rater Reliability Statistics for Topic and Ideological Perspective of Article} 
+\begin{tabular}{llll}
+  \hline
+Coding Task & Group of Articles & Agreement & Fleiss Kappa \\ 
+  \hline
+Main topics of articles (4 categories) & Study I & 75.51 & 0.6 \\ 
+  Partisan lean of of articles (4 categories) & Study I & 51.02 & 0.57 \\ 
+   \hline
+\end{tabular}
+\end{table}
+

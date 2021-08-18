@@ -1,0 +1,45 @@
+
+% Table created by stargazer v.5.2.2 by Marek Hlavac, Harvard University. E-mail: hlavac at fas.harvard.edu
+% Date and time: Wed, Jul 28, 2021 - 15:32:40
+% Requires LaTeX packages: dcolumn 
+\begin{table}[!htbp] \centering 
+  \caption{Measuring Effect of Additional Information on Matching the Fact-Checker's Evaluation - Categorical (Logistic Regression)} 
+  \label{} 
+\begin{tabular}{@{\extracolsep{5pt}}lD{.}{.}{-3} D{.}{.}{-3} D{.}{.}{-3} D{.}{.}{-3} } 
+\\[-1.8ex]\hline 
+\hline \\[-1.8ex] 
+ & \multicolumn{4}{c}{\textit{Dependent variable:}} \\ 
+\cline{2-5} 
+\\[-1.8ex] & \multicolumn{4}{c}{ } \\ 
+ & \multicolumn{1}{c}{(H1.1)} & \multicolumn{1}{c}{(H1.2)} & \multicolumn{1}{c}{(H3.1)} & \multicolumn{1}{c}{(H3.2)} \\ 
+\hline \\[-1.8ex] 
+ Treatment (Full Text) & 0.242^{***} & 0.364^{***} &  &  \\ 
+  & (0.044) & (0.046) &  &  \\ 
+  & & & & \\ 
+ Treatment (Search) &  &  & 0.305^{***} & -0.072 \\ 
+  &  &  & (0.059) & (0.096) \\ 
+  & & & & \\ 
+ Education & -0.002 & 0.023 & 0.091^{***} & 0.085 \\ 
+  & (0.020) & (0.021) & (0.027) & (0.044) \\ 
+  & & & & \\ 
+ Age & -0.002 & -0.001 & -0.001 & 0.009^{**} \\ 
+  & (0.001) & (0.001) & (0.002) & (0.003) \\ 
+  & & & & \\ 
+ Gender (Male) & 0.123^{**} & 0.195^{***} & 0.148^{*} & -0.082 \\ 
+  & (0.044) & (0.046) & (0.060) & (0.097) \\ 
+  & & & & \\ 
+ Income & 0.037 & 0.004 & -0.010 & -0.027 \\ 
+  & (0.025) & (0.026) & (0.034) & (0.055) \\ 
+  & & & & \\ 
+ Ideology & -0.038^{**} & -0.051^{***} & -0.121^{***} & -0.159^{***} \\ 
+  & (0.013) & (0.013) & (0.017) & (0.028) \\ 
+  & & & & \\ 
+\hline \\[-1.8ex] 
+Observations & 2275 & 8910 & 8764 &  \\ 
+R-squared & 0.023 & 0.006 & 0.012 &  \\ 
+Adj. R-squared & 0.02 & 0.005 & 0.011 &  \\ 
+\hline 
+\hline \\[-1.8ex] 
+\textit{Note:}  & \multicolumn{4}{r}{$^{*}$p$<$0.05; $^{**}$p$<$0.01; $^{***}$p$<$0.001} \\ 
+\end{tabular} 
+\end{table} 

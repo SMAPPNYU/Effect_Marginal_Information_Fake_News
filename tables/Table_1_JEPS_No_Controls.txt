@@ -1,0 +1,31 @@
+
+% Table created by stargazer v.5.2.2 by Marek Hlavac, Harvard University. E-mail: hlavac at fas.harvard.edu
+% Date and time: Wed, Jul 28, 2021 - 15:32:45
+% Requires LaTeX packages: dcolumn 
+\begin{table}[!htbp] \centering 
+  \caption{Measuring Effect of Additional Information on Matching the Fact-Checker's Evaluation Without Conditioning on Control Variables} 
+  \label{} 
+\begin{tabular}{@{\extracolsep{5pt}}lD{.}{.}{-3} D{.}{.}{-3} D{.}{.}{-3} D{.}{.}{-3} } 
+\\[-1.8ex]\hline 
+\hline \\[-1.8ex] 
+ & \multicolumn{4}{c}{\textit{Dependent variable:}} \\ 
+\cline{2-5} 
+\\[-1.8ex] & \multicolumn{4}{c}{ } \\ 
+ & \multicolumn{1}{c}{(H1.1)} & \multicolumn{1}{c}{(H1.2)} & \multicolumn{1}{c}{(H3.1)} & \multicolumn{1}{c}{(H3.2)} \\ 
+\hline \\[-1.8ex] 
+ Treatment (Full Text) & 0.058^{***} & 0.087^{***} &  &  \\ 
+  & (0.011) & (0.011) &  &  \\ 
+  & & & & \\ 
+ Treatment (Search) &  &  & 0.064^{**} & -0.014 \\ 
+  &  &  & (0.021) & (0.021) \\ 
+  & & & & \\ 
+\hline \\[-1.8ex] 
+Observations & 2275 & 8910 & 8764 &  \\ 
+R-squared & 0 & 0.003 & 0.008 &  \\ 
+Adj. R-squared & 0 & 0.003 & 0.008 &  \\ 
+F-Statistic & 0.518^{***} & 30.473^{***} & 67.612^{***} &  \\ 
+\hline 
+\hline \\[-1.8ex] 
+\textit{Note:}  & \multicolumn{4}{r}{$^{*}$p$<$0.05; $^{**}$p$<$0.01; $^{***}$p$<$0.001} \\ 
+\end{tabular} 
+\end{table} 

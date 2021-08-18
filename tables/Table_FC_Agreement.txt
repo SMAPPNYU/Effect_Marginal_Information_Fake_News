@@ -1,0 +1,14 @@
+% latex table generated in R 3.6.1 by xtable 1.8-4 package
+% Wed Jul 28 15:32:43 2021
+\begin{table}[ht]
+\centering
+\caption{Inter-Rater Reliability Statistics for Veracity Evaluations of Articles} 
+\begin{tabular}{llll}
+  \hline
+Coding Task & Group of Articles & Agreement & Fleiss Kappa \\ 
+  \hline
+Veracity of Article (3 categories) & All Articles in Both Experiments & 46.67 & 0.4 \\ 
+   \hline
+\end{tabular}
+\end{table}
+
