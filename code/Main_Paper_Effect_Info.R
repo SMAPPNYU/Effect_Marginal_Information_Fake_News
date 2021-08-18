@@ -743,26 +743,92 @@ Search_Articles_16 <- unique(MF_Exp_3$Article_day)
 ####################################################################################################################################################################
 
 
-Coef_names <- rev(c('(H1.1) Full Text\n(All News)\n(No Source)',
-                    '(H1.2) Full Text\n(All News)\n(Source)',
-                    '(H3.1) External Information\n(True News)\n(Source and Full Text)',
-                    '(H3.2) External Information\n(False/Misleading News)\n(Source and Full Text)'))
+Coef_names <- rev(c('[H1.1 Full Text]\n{All News}\n(No Source)',
+                    '[H1.2 Full Text]\n{All News}\n(Source)'))
 
 
-Coefficients <- c(fit_Search_MF_T_1$coefficients[2],
-                  fit_Search_MF_T_3$coefficients[2],
-                  fit_Headline_MF_T_1$coefficients[2],
+Coefficients <- c(fit_Headline_MF_T_1$coefficients[2],
                   fit_Headline_MF_T_2$coefficients[2])
 
-CI_Upper <- c(CI_Search_MF_T_1[2,2],
-              CI_Search_MF_T_3[2,2],
-              CI_Headline_MF_T_1[2,2],
+CI_Upper <- c(CI_Headline_MF_T_1[2,2],
               CI_Headline_MF_T_2[2,2])            
 
-CI_Lower <- c(CI_Search_MF_T_1[2,1],
-              CI_Search_MF_T_3[2,1],
-              CI_Headline_MF_T_1[2,1],
+CI_Lower <- c(CI_Headline_MF_T_1[2,1],
               CI_Headline_MF_T_2[2,1])           
+
+
+d_matrix <- cbind(Coef_names,Coefficients,CI_Upper,CI_Lower)
+rownames(d_matrix) <- c()
+
+d_matrix <- data.frame(d_matrix)
+
+
+d_matrix$Coefficients <- as.character(d_matrix$Coefficients)
+d_matrix$CI_Lower <- as.character(d_matrix$CI_Lower)
+d_matrix$CI_Upper <- as.character(d_matrix$CI_Upper)
+
+d_matrix$Coefficients <- as.numeric(d_matrix$Coefficients)
+d_matrix$CI_Lower <- as.numeric(d_matrix$CI_Lower)
+d_matrix$CI_Upper <- as.numeric(d_matrix$CI_Upper)
+
+
+d_matrix <- d_matrix %>% arrange(desc(row_number()))
+
+
+
+
+d_matrix$x<-c(0.1,0.2)
+
+
+
+ggplot(data = d_matrix, aes(x = x, y = Coefficients)) +
+  geom_hline(aes(yintercept = 0), color = "gray",
+             linetype = 2, size = 1.2) +
+  geom_point(size=4) +
+  geom_linerange(aes(min = CI_Lower,
+                     max = CI_Upper),
+                 size=1.5) +
+  scale_color_manual(values=c('red','blue','purple'), name = "Period") +
+  ylab("\nEffect of piece of information [in brackets] on matching                                        \nfact-checker's evaluation of a type of article {in braces}                                      \n when other pieces of information are provided (in parentheses)                                   ") +
+  theme_classic() +
+  theme(axis.title.x = element_text(size=18),
+        axis.text.x  = element_text(size=16),
+        axis.title.y = element_text(size=16),
+        axis.text.y  = element_text(size=22),
+        plot.title = element_text(size = 16),
+        legend.title = element_text(size=16),
+        legend.text = element_text(size=14)) +
+  ylim(-0.15,0.15) +
+  scale_x_continuous(" \n",breaks=c(0.1,0.2),labels=Coef_names,limits=c(0.0,0.3)) +
+  coord_flip()
+
+ggsave('.//figures//Coefficients_1.png',height=8,width=8)
+
+
+
+Coef_names <- c('[H2.4 Source]\n{Mainstream News}\n(Headline/Lede)',
+                '[H2.3 Source]\n{Low-Quality News}\n(Headline/Lede)',
+                '[H2.2 Source]\n{Mainstream News}\n(Full Text)',
+                '[H2.1 Source]\n{Low-Quality News}\n(Full Text)')
+
+Coefficients <- c(fit_Standardize_MF_T_6$coefficients[2],
+                  fit_Standardize_MF_T_5$coefficients[2],
+                  fit_Standardize_MF_T_2$coefficients[2],
+                  fit_Standardize_MF_T_1$coefficients[2])
+
+
+CI_Upper <- c(CI_Standardize_MF_T_6[2,2],
+              CI_Standardize_MF_T_5[2,2],
+              CI_Standardize_MF_T_2[2,2],
+              CI_Standardize_MF_T_1[2,2])            
+
+
+
+CI_Lower <- c(CI_Standardize_MF_T_6[2,1],
+              CI_Standardize_MF_T_5[2,1],
+              CI_Standardize_MF_T_2[2,1],
+              CI_Standardize_MF_T_1[2,1])
+
 
 
 d_matrix <- cbind(Coef_names,Coefficients,CI_Upper,CI_Lower)
@@ -792,17 +858,17 @@ d_matrix$x<-c(0.1,0.2,0.3,0.4)
 ggplot(data = d_matrix, aes(x = x, y = Coefficients)) +
   geom_hline(aes(yintercept = 0), color = "gray",
              linetype = 2, size = 1.2) +
-  geom_point(size=4) +
+  geom_point(size=3) +
   geom_linerange(aes(min = CI_Lower,
                      max = CI_Upper),
                  size=1.5) +
   scale_color_manual(values=c('red','blue','purple'), name = "Period") +
-  ylab("\n Effect of item of information\n on matching fact-checker's evaluation") +
+  ylab("\nEffect of providing piece of information [in brackets]                                  \n on rating a type of news article {in braces} as true                                     \n when other pieces of information are provided (in parentheses)                                        ") +
   theme_classic() +
   theme(axis.title.x = element_text(size=18),
         axis.text.x  = element_text(size=16),
         axis.title.y = element_text(size=16),
-        axis.text.y  = element_text(size=16),
+        axis.text.y  = element_text(size=22),
         plot.title = element_text(size = 16),
         legend.title = element_text(size=16),
         legend.text = element_text(size=14)) +
@@ -810,36 +876,82 @@ ggplot(data = d_matrix, aes(x = x, y = Coefficients)) +
   scale_x_continuous(" \n",breaks=c(0.1,0.2,0.3,0.4),labels=Coef_names,limits=c(0.0,0.5)) +
   coord_flip()
 
-ggsave('.//figures//Coefficients_1.png',height=12,width=9)
+
+ggsave('.//figures//Coefficients_2.png',height=8,width=8)
 
 
 
-Coef_names <- c('(H3.3) External Information\n(False/Misleading News)\n(Source and Full Text)',
-                '(H2.4) Source\n(Mainstream News)\n(Headline/Lede)',
-                '(H2.3) Source\n(Low-Quality News)\n(Headline/Lede)',
-                '(H2.2) Source\n(Mainstream News)\n(Full Text)',
-                '(H2.1) Source\n(Low-Quality News)\n(Full Text)')
 
-Coefficients <- c(fit_Search_MF_T_2$coefficients[2],
-                  fit_Standardize_MF_T_6$coefficients[2],
-                  fit_Standardize_MF_T_5$coefficients[2],
-                  fit_Standardize_MF_T_2$coefficients[2],
-                  fit_Standardize_MF_T_1$coefficients[2])
+Coef_names <- rev(c('[H3.1 External Information]\n{True News}\n(Source and Full Text)',
+                    '[H3.2 External Information]\n{False/Misleading News}\n(Source and Full Text)'))
 
 
-CI_Upper <- c(CI_Search_MF_T_2[2,2],
-              CI_Standardize_MF_T_6[2,2],
-              CI_Standardize_MF_T_5[2,2],
-              CI_Standardize_MF_T_2[2,2],
-              CI_Standardize_MF_T_1[2,2])            
+Coefficients <- c(fit_Search_MF_T_1$coefficients[2],
+                  fit_Search_MF_T_3$coefficients[2])
+
+CI_Upper <- c(CI_Search_MF_T_1[2,2],
+              CI_Search_MF_T_3[2,2])            
+
+CI_Lower <- c(CI_Search_MF_T_1[2,1],
+              CI_Search_MF_T_3[2,1])           
+
+
+d_matrix <- cbind(Coef_names,Coefficients,CI_Upper,CI_Lower)
+rownames(d_matrix) <- c()
+
+d_matrix <- data.frame(d_matrix)
+
+
+d_matrix$Coefficients <- as.character(d_matrix$Coefficients)
+d_matrix$CI_Lower <- as.character(d_matrix$CI_Lower)
+d_matrix$CI_Upper <- as.character(d_matrix$CI_Upper)
+
+d_matrix$Coefficients <- as.numeric(d_matrix$Coefficients)
+d_matrix$CI_Lower <- as.numeric(d_matrix$CI_Lower)
+d_matrix$CI_Upper <- as.numeric(d_matrix$CI_Upper)
+
+
+d_matrix <- d_matrix %>% arrange(desc(row_number()))
 
 
 
-CI_Lower <- c(CI_Search_MF_T_2[2,1],
-              CI_Standardize_MF_T_6[2,1],
-              CI_Standardize_MF_T_5[2,1],
-              CI_Standardize_MF_T_2[2,1],
-              CI_Standardize_MF_T_1[2,1])
+
+d_matrix$x<-c(0.1,0.2)
+
+
+
+ggplot(data = d_matrix, aes(x = x, y = Coefficients)) +
+  geom_hline(aes(yintercept = 0), color = "gray",
+             linetype = 2, size = 1.2) +
+  geom_point(size=4) +
+  geom_linerange(aes(min = CI_Lower,
+                     max = CI_Upper),
+                 size=1.5) +
+  scale_color_manual(values=c('red','blue','purple'), name = "Period") +
+  ylab("\nEffect of piece of information [in brackets] on matching                                                  \nfact-checker's evaluation of a type of article {in braces}                                                 \n when other pieces of information are provided (in parentheses)                                                ") +
+  theme_classic() +
+  theme(axis.title.x = element_text(size=18),
+        axis.text.x  = element_text(size=16),
+        axis.title.y = element_text(size=16),
+        axis.text.y  = element_text(size=22),
+        plot.title = element_text(size = 16),
+        legend.title = element_text(size=16),
+        legend.text = element_text(size=14)) +
+  ylim(-0.15,0.15) +
+  scale_x_continuous(" \n",breaks=c(0.1,0.2),labels=Coef_names,limits=c(0.0,0.3)) +
+  coord_flip()
+
+ggsave('.//figures//Coefficients_3.png',height=8,width=8)
+
+
+
+Coef_names <- c('[H3.3 External Information]\n{False/Misleading News}\n(Source and Full Text)')
+
+Coefficients <- c(fit_Search_MF_T_2$coefficients[2])
+
+CI_Upper <- c(CI_Search_MF_T_2[2,2])            
+
+CI_Lower <- c(CI_Search_MF_T_2[2,1])
 
 
 
@@ -863,7 +975,7 @@ d_matrix <- d_matrix %>% arrange(desc(row_number()))
 
 
 
-d_matrix$x<-c(0.1,0.2,0.3,0.4,0.5)
+d_matrix$x<-c(0.1)
 
 
 
@@ -875,23 +987,21 @@ ggplot(data = d_matrix, aes(x = x, y = Coefficients)) +
                      max = CI_Upper),
                  size=1.5) +
   scale_color_manual(values=c('red','blue','purple'), name = "Period") +
-  ylab("\n Effect of item of information on likelihood\nof rating article as true") +
+  ylab("\nEffect of providing piece of information [in brackets]                                             \n on rating a type of news article {in braces} as true                                                   \n when other pieces of information are provided (in parentheses)                                                     ") +
   theme_classic() +
   theme(axis.title.x = element_text(size=18),
         axis.text.x  = element_text(size=16),
         axis.title.y = element_text(size=16),
-        axis.text.y  = element_text(size=16),
+        axis.text.y  = element_text(size=22),
         plot.title = element_text(size = 16),
         legend.title = element_text(size=16),
         legend.text = element_text(size=14)) +
   ylim(-0.15,0.15) +
-  scale_x_continuous(" \n",breaks=c(0.1,0.2,0.3,0.4,0.5),labels=Coef_names,limits=c(0.0,0.6)) +
+  scale_x_continuous(" \n",breaks=c(0.1),labels=Coef_names,limits=c(0.0,0.2)) +
   coord_flip()
 
 
-ggsave('.//figures//Coefficients_2.png',height=12,width=9)
-
-
+ggsave('.//figures//Coefficients_4.png',height=8,width=8)
 
 
 

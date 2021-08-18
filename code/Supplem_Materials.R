@@ -748,8 +748,8 @@ Search_Articles_16 <- unique(MF_Exp_3$Article_day)
 
 write(stargazer(lin_results_Headline_MF_T_1,
                 lin_results_Headline_MF_T_2,
-                lin_Search_Separate_MF_T_1,
                 lin_Search_Separate_MF_T_2,
+                lin_Search_Separate_MF_T_1,
                 model.numbers=FALSE,
                 column.labels=c("(H1.1)","(H1.2)","(H3.1)","(H3.2)"),
                 title="Measuring Effect of Additional Information on Matching the Fact-Checker's Evaluation",
@@ -1795,6 +1795,550 @@ write(stargazer(lin_results_Model_Compare_Measures,
                                  c("R-squared",Rsq_Tab_1_1),
                                  c("Adj. R-squared",A_Rsq_Tab_1_1),
                                  c("F-Statistic",F_Tab_1_1))),file='.//tables//Table_Compare_Measures.txt')
+
+
+
+
+
+
+######################## RUN IT WITHOUT CONDITIONING VARIABLES #######################################
+
+
+#(Hypothesis 3.1)
+
+Search_Separate <- Misl_False_Search_MF
+
+#### (1.2) Create Figure - Search For Information:
+Misl_False_Search_1 <- Search_Separate %>% select(Match_FC,Treat_Search,Education_Score,Age,Gender,Income_Score,Familiar_Dummy,Article_day,ResponseId,Ideology_Score)
+#Remove NA values:
+Misl_False_Search_1 = na.omit(Misl_False_Search_1)
+
+Misl_False_Search_1$Match_FC <- as.numeric(Misl_False_Search_1$Match_FC)
+Misl_False_Search_1$Age <- as.numeric(Misl_False_Search_1$Age)
+Misl_False_Search_1$Treat_Search <- as.numeric(Misl_False_Search_1$Treat_Search)
+Misl_False_Search_1$Education_Score <- as.numeric(Misl_False_Search_1$Education_Score)
+Misl_False_Search_1$Income_Score <- as.numeric(Misl_False_Search_1$Income_Score)
+Misl_False_Search_1$Ideology_Score <- as.numeric(Misl_False_Search_1$Ideology_Score)
+
+#Run linear regression and produce coefficient values:
+fit_Search_MF_T_1 = glm(Match_FC ~ Treat_Search, data = Misl_False_Search_1)
+#Produce clustere standard errors:
+CI_Search_MF_T_1 = coefci(fit_Search_MF_T_1, vcov. = vcovCL(fit_Search_MF_T_1, cluster = list(Misl_False_Search_1$ResponseId), type = "HC0"))
+
+lin_Search_Separate_MF_T_1 = coeftest(fit_Search_MF_T_1, vcov. = vcovCL(fit_Search_MF_T_1, cluster = list(Misl_False_Search_1$ResponseId), type = "HC0"))
+
+
+#Number of observations:
+Obs_Tab_1_1 <- nrow(Misl_False_Search_1)
+#R-squared
+Rsq_Tab_1_1 <- rsq(fit_Search_MF_T_1)
+A_Rsq_Tab_1_1 <- rsq(fit_Search_MF_T_1,adj=TRUE)
+A_Rsq_Tab_1_1 <- round(A_Rsq_Tab_1_1,3)
+Rsq_Tab_1_1 <- round(Rsq_Tab_1_1,3)
+
+
+#F-statistic
+glm.0 <- glm(Match_FC ~ 1,data=Misl_False_Search_1)
+Results <- anova(fit_Search_MF_T_1, glm.0, test="F")
+F_Tab_1_1 <- Results$F[2]
+F_Tab_1_1 <- round(F_Tab_1_1,3)
+F_Tab_1_1 <- paste0(F_Tab_1_1,'^{***}')
+
+Search_Articles_1 <- unique(Misl_False_Search_1$Article_day)
+
+
+
+
+#(Hypothesis 3.2)
+
+Search_Separate <- Misl_False_Search_MF
+
+
+Misl_False_Search_1 <- Search_Separate %>% select(Susc_FN,Treat_Search,Education_Score,Age,Gender,Income_Score,Familiar_Dummy,Article_day,ResponseId,Ideology_Score)
+#Remove NA values:
+Misl_False_Search_1 = na.omit(Misl_False_Search_1)
+
+
+Misl_False_Search_1$Susc_FN <- as.numeric(Misl_False_Search_1$Susc_FN)
+Misl_False_Search_1$Age <- as.numeric(Misl_False_Search_1$Age)
+Misl_False_Search_1$Treat_Search <- as.numeric(Misl_False_Search_1$Treat_Search)
+Misl_False_Search_1$Education_Score <- as.numeric(Misl_False_Search_1$Education_Score)
+Misl_False_Search_1$Income_Score <- as.numeric(Misl_False_Search_1$Income_Score)
+Misl_False_Search_1$Ideology_Score <- as.numeric(Misl_False_Search_1$Ideology_Score)
+
+
+Misl_False_Search_Fig_1 <- Misl_False_Search_1 %>% mutate(Treat_Search_Cat = ifelse(Treat_Search == 0,'Control', 'Treatment'))
+
+
+#Run linear regression and produce coefficient values:
+fit_Search_MF_T_2 = glm(Susc_FN ~ Treat_Search, data = Misl_False_Search_1)
+#Produce clustere standard errors:
+CI_Search_MF_T_2 = coefci(fit_Search_MF_T_2, vcov. = vcovCL(fit_Search_MF_T_2, cluster = list(Misl_False_Search_1$ResponseId), type = "HC0"))
+
+lin_Search_Separate_MF_T_2 = coeftest(fit_Search_MF_T_2, vcov. = vcovCL(fit_Search_MF_T_2, cluster = list(Misl_False_Search_1$ResponseId), type = "HC0"))
+
+
+#Number of observations:
+Obs_Tab_1_2 <- nrow(Misl_False_Search_1)
+#R-squared
+Rsq_Tab_1_2 <- rsq(fit_Search_MF_T_2)
+A_Rsq_Tab_1_2 <- rsq(fit_Search_MF_T_2,adj=TRUE)
+A_Rsq_Tab_1_2 <- round(A_Rsq_Tab_1_2,3)
+Rsq_Tab_1_2 <- round(Rsq_Tab_1_2,3)
+
+
+#F-statistic
+glm.0 <- glm(Susc_FN ~ 1,data=Misl_False_Search_1)
+Results <- anova(fit_Search_MF_T_2, glm.0, test="F")
+F_Tab_1_2 <- Results$F[2]
+F_Tab_1_2 <- round(F_Tab_1_2,3)
+F_Tab_1_2 <- paste0(F_Tab_1_2,'^{***}')
+
+Search_Articles_2 <- unique(Misl_False_Search_1$Article_day)
+
+
+
+#(Hypothesis 3.3)
+
+Search_Separate <- Misl_False_Search_T
+
+
+Misl_False_Search_1 <- Search_Separate %>% select(Match_FC,Treat_Search,Education_Score,Age,Gender,Income_Score,Familiar_Dummy,Article_day,ResponseId,Ideology_Score)
+#Remove NA values:
+Misl_False_Search_1 = na.omit(Misl_False_Search_1)
+
+
+Misl_False_Search_1$Match_FC <- as.numeric(Misl_False_Search_1$Match_FC)
+Misl_False_Search_1$Age <- as.numeric(Misl_False_Search_1$Age)
+Misl_False_Search_1$Treat_Search <- as.numeric(Misl_False_Search_1$Treat_Search)
+Misl_False_Search_1$Education_Score <- as.numeric(Misl_False_Search_1$Education_Score)
+Misl_False_Search_1$Income_Score <- as.numeric(Misl_False_Search_1$Income_Score)
+Misl_False_Search_1$Ideology_Score <- as.numeric(Misl_False_Search_1$Ideology_Score)
+
+#Run linear regression and produce coefficient values:
+fit_Search_MF_T_3 = glm(Match_FC ~ Treat_Search, data = Misl_False_Search_1)
+#Produce clustere standard errors:
+CI_Search_MF_T_3 = coefci(fit_Search_MF_T_3, vcov. = vcovCL(fit_Search_MF_T_3, cluster = list(Misl_False_Search_1$ResponseId), type = "HC0"))
+
+lin_Search_Separate_MF_T_3 = coeftest(fit_Search_MF_T_3, vcov. = vcovCL(fit_Search_MF_T_3, cluster = list(Misl_False_Search_1$ResponseId), type = "HC0"))
+
+
+#Number of observations:
+Obs_Tab_1_3 <- nrow(Misl_False_Search_1)
+#R-squared
+Rsq_Tab_1_3 <- rsq(fit_Search_MF_T_3)
+A_Rsq_Tab_1_3 <- rsq(fit_Search_MF_T_3,adj=TRUE)
+A_Rsq_Tab_1_3 <- round(A_Rsq_Tab_1_3,3)
+Rsq_Tab_1_3 <- round(Rsq_Tab_1_3,3)
+
+
+#F-statistic
+glm.0 <- glm(Match_FC ~ 1,data=Misl_False_Search_1)
+Results <- anova(fit_Search_MF_T_3, glm.0, test="F")
+F_Tab_1_3 <- Results$F[2]
+F_Tab_1_3 <- round(F_Tab_1_3,3)
+F_Tab_1_3 <- paste0(F_Tab_1_3,'^{***}')
+
+Search_Articles_3 <- unique(Misl_False_Search_1$Article_day)
+
+
+
+
+#(Hypothesis 2.1)
+Exp_3_Data <- rbind(Experiment_3_Data,Experiment_3_Data_T)
+Exp_3_Data$Headline <- as.numeric(Exp_3_Data$Headline)
+Exp_3_Data$Source <- as.numeric(Exp_3_Data$Source)
+Exp_3_Data$Article <- as.numeric(Exp_3_Data$Article)
+Full_Data <- Exp_3_Data %>% filter(Headline == 0)
+Full_Data$Standardize <- ifelse(Full_Data$Source == 0,1,0)
+Full_Data <- Full_Data %>% filter(Article == 1 | Article == 2 | Article == 3)
+Full_Data$T_Dummy <- ifelse(Full_Data$Evaluation == 'T',1,0)
+
+unique(Full_Data$Evaluation)
+
+
+MF_Exp_3 <- Full_Data %>% select(T_Dummy,Standardize,Source,Education_Score,Age,Gender,Income_Score,Familiar_Dummy,Article_day,ResponseId,Ideology_Score)
+#Remove NA values:
+MF_Exp_3 <- na.omit(MF_Exp_3)
+
+MF_Exp_3$T_Dummy <- as.numeric(MF_Exp_3$T_Dummy)
+MF_Exp_3$Age <- as.numeric(MF_Exp_3$Age)
+MF_Exp_3$Standardize <- as.numeric(MF_Exp_3$Standardize)
+MF_Exp_3$Education_Score <- as.numeric(MF_Exp_3$Education_Score)
+MF_Exp_3$Income_Score <- as.numeric(MF_Exp_3$Income_Score)
+MF_Exp_3$Ideology_Score <- as.numeric(MF_Exp_3$Ideology_Score)
+
+#Run linear regression and produce coefficient values:
+fit_Standardize_MF_T_1 = glm(T_Dummy ~ Source, data = MF_Exp_3)
+#Produce clustere standard errors:
+CI_Standardize_MF_T_1 <- coefci(fit_Standardize_MF_T_1, vcov. = vcovCL(fit_Standardize_MF_T_1, cluster = list(MF_Exp_3$ResponseId), type = "HC0"))
+
+lin_results_Standardize_MF_T_1 = coeftest(fit_Standardize_MF_T_1, vcov. = vcovCL(fit_Standardize_MF_T_1, cluster = list(MF_Exp_3$ResponseId), type = "HC0"))
+
+#Number of observations:
+Obs_Tab_3_1 <- nrow(MF_Exp_3)
+#R-squared
+Rsq_Tab_3_1 <- rsq(fit_Standardize_MF_T_1)
+A_Rsq_Tab_3_1 <- rsq(fit_Standardize_MF_T_1,adj=TRUE)
+A_Rsq_Tab_3_1 <- round(A_Rsq_Tab_3_1,3)
+Rsq_Tab_3_1 <- round(Rsq_Tab_3_1,3)
+
+
+#F-statistic
+glm.0 <- glm(T_Dummy ~ 1,data=MF_Exp_3)
+Results <- anova(fit_Standardize_MF_T_1, glm.0, test="F")
+F_Tab_3_1 <- Results$F[2]
+F_Tab_3_1 <- round(F_Tab_3_1,3)
+F_Tab_3_1 <- paste0(F_Tab_3_1,'^{***}')
+
+Search_Articles_7 <- unique(MF_Exp_3$Article_day)
+
+
+
+
+#(Hypothesis 2.2)
+Exp_3_Data <- rbind(Experiment_3_Data,Experiment_3_Data_T)
+
+Exp_3_Data$Headline <- as.numeric(Exp_3_Data$Headline)
+Exp_3_Data$Source <- as.numeric(Exp_3_Data$Source)
+Exp_3_Data$Article <- as.numeric(Exp_3_Data$Article)
+
+Full_Data <- Exp_3_Data %>% filter(Headline == 0)
+Full_Data$Standardize <- ifelse(Full_Data$Source == 0,1,0)
+Full_Data <- Full_Data %>% filter(Article == 4 | Article == 5)
+Full_Data$T_Dummy <- ifelse(Full_Data$Evaluation == 'T',1,0)
+
+unique(Full_Data$Evaluation)
+
+
+MF_Exp_3 <- Full_Data %>% select(T_Dummy,Standardize,Source,Education_Score,Age,Gender,Income_Score,Familiar_Dummy,Article_day,ResponseId,Ideology_Score)
+#Remove NA values:
+MF_Exp_3 <- na.omit(MF_Exp_3)
+
+MF_Exp_3$T_Dummy <- as.numeric(MF_Exp_3$T_Dummy)
+MF_Exp_3$Age <- as.numeric(MF_Exp_3$Age)
+MF_Exp_3$Standardize <- as.numeric(MF_Exp_3$Standardize)
+MF_Exp_3$Education_Score <- as.numeric(MF_Exp_3$Education_Score)
+MF_Exp_3$Income_Score <- as.numeric(MF_Exp_3$Income_Score)
+MF_Exp_3$Ideology_Score <- as.numeric(MF_Exp_3$Ideology_Score)
+
+
+#Run linear regression and produce coefficient values:
+fit_Standardize_MF_T_2 = glm(T_Dummy ~ Source, data = MF_Exp_3)
+#Produce clustere standard errors:
+CI_Standardize_MF_T_2 <- coefci(fit_Standardize_MF_T_2, vcov. = vcovCL(fit_Standardize_MF_T_2, cluster = list(MF_Exp_3$ResponseId), type = "HC0"))
+
+lin_results_Standardize_MF_T_2 = coeftest(fit_Standardize_MF_T_2, vcov. = vcovCL(fit_Standardize_MF_T_2, cluster = list(MF_Exp_3$ResponseId), type = "HC0"))
+
+
+#Number of observations:
+Obs_Tab_3_2 <- nrow(MF_Exp_3)
+#R-squared
+Rsq_Tab_3_2 <- rsq(fit_Standardize_MF_T_2)
+A_Rsq_Tab_3_2 <- rsq(fit_Standardize_MF_T_2,adj=TRUE)
+A_Rsq_Tab_3_2 <- round(A_Rsq_Tab_3_2,3)
+Rsq_Tab_3_2 <- round(Rsq_Tab_3_2,3)
+
+
+#F-statistic
+glm.0 <- glm(T_Dummy ~ 1,data=MF_Exp_3)
+Results <- anova(fit_Standardize_MF_T_2, glm.0, test="F")
+F_Tab_3_2 <- Results$F[2]
+F_Tab_3_2 <- round(F_Tab_3_2,3)
+F_Tab_3_2 <- paste0(F_Tab_3_2,'^{***}')
+
+Search_Articles_8 <- unique(MF_Exp_3$Article_day)
+
+
+#(Hypothesis 2.3)
+
+
+# (2.E)
+Exp_3_Data <- rbind(Experiment_3_Data,Experiment_3_Data_T)
+
+Exp_3_Data$Headline <- as.numeric(Exp_3_Data$Headline)
+Exp_3_Data$Source <- as.numeric(Exp_3_Data$Source)
+Exp_3_Data$Article <- as.numeric(Exp_3_Data$Article)
+Exp_3_Data$Ideology_Score <- as.numeric(Exp_3_Data$Ideology_Score)
+
+Full_Data <- Exp_3_Data %>% filter(Headline == 1)
+Full_Data$Standardize <- ifelse(Full_Data$Source == 0,1,0)
+Full_Data <- Full_Data %>% filter(Article == 1 | Article == 2 | Article == 3)
+Full_Data$T_Dummy <- ifelse(Full_Data$Evaluation == 'T',1,0)
+
+
+
+MF_Exp_3 <- Full_Data %>% select(T_Dummy,Standardize,Source,Education_Score,Age,Gender,Income_Score,Dummy_Congruence,Familiar_Dummy,Article_day,ResponseId,Ideology_Score)
+#Remove NA values:
+MF_Exp_3 <- na.omit(MF_Exp_3)
+
+MF_Exp_3$T_Dummy <- as.numeric(MF_Exp_3$T_Dummy)
+MF_Exp_3$Age <- as.numeric(MF_Exp_3$Age)
+MF_Exp_3$Standardize <- as.numeric(MF_Exp_3$Standardize)
+MF_Exp_3$Education_Score <- as.numeric(MF_Exp_3$Education_Score)
+MF_Exp_3$Income_Score <- as.numeric(MF_Exp_3$Income_Score)
+MF_Exp_3$Ideology_Score <- as.numeric(MF_Exp_3$Ideology_Score)
+
+
+
+#Run linear regression and produce coefficient values:
+fit_Standardize_MF_T_3 = glm(T_Dummy ~ Source, data = MF_Exp_3)
+#Produce clustere standard errors:
+CI_Standardize_MF_T_3 <- coefci(fit_Standardize_MF_T_3, vcov. = vcovCL(fit_Standardize_MF_T_3, cluster = list(MF_Exp_3$ResponseId), type = "HC0"))
+
+lin_results_Standardize_MF_T_3 = coeftest(fit_Standardize_MF_T_3, vcov. = vcovCL(fit_Standardize_MF_T_3, cluster = list(MF_Exp_3$ResponseId), type = "HC0"))
+
+#Number of observations:
+Obs_Tab_3_5 <- nrow(MF_Exp_3)
+#R-squared
+Rsq_Tab_3_5 <- rsq(fit_Standardize_MF_T_3)
+A_Rsq_Tab_3_5 <- rsq(fit_Standardize_MF_T_3,adj=TRUE)
+A_Rsq_Tab_3_5 <- round(A_Rsq_Tab_3_5,3)
+Rsq_Tab_3_5 <- round(Rsq_Tab_3_5,3)
+
+
+#F-statistic
+glm.0 <- glm(T_Dummy ~ 1,data=MF_Exp_3)
+Results <- anova(fit_Standardize_MF_T_3, glm.0, test="F")
+F_Tab_3_5 <- Results$F[2]
+F_Tab_3_5 <- round(F_Tab_3_5,3)
+F_Tab_3_5 <- paste0(F_Tab_3_5,'^{***}')
+
+Search_Articles_11 <- unique(MF_Exp_3$Article_day)
+
+
+
+
+# (Hypothesis 2.4)
+Exp_3_Data <- rbind(Experiment_3_Data,Experiment_3_Data_T)
+
+
+Exp_3_Data$Headline <- as.numeric(Exp_3_Data$Headline)
+Exp_3_Data$Source <- as.numeric(Exp_3_Data$Source)
+Exp_3_Data$Article <- as.numeric(Exp_3_Data$Article)
+Exp_3_Data$Dummy_Congruence <- as.numeric(Exp_3_Data$Dummy_Congruence)
+Exp_3_Data$Ideology_Score <- as.numeric(Exp_3_Data$Ideology_Score)
+
+Full_Data <- Exp_3_Data %>% filter(Headline == 1)
+Full_Data$Standardize <- ifelse(Full_Data$Source == 0,1,0)
+Full_Data <- Full_Data %>% filter(Article == 4 | Article == 5)
+Full_Data$T_Dummy <- ifelse(Full_Data$Evaluation == 'T',1,0)
+
+unique(Full_Data$Evaluation)
+
+
+MF_Exp_3 <- Full_Data %>% select(T_Dummy,Standardize,Source,Education_Score,Age,Gender,Income_Score,Dummy_Congruence,Familiar_Dummy,Article_day,ResponseId,Ideology_Score)
+#Remove NA values:
+MF_Exp_3 <- na.omit(MF_Exp_3)
+
+MF_Exp_3$T_Dummy <- as.numeric(MF_Exp_3$T_Dummy)
+MF_Exp_3$Age <- as.numeric(MF_Exp_3$Age)
+MF_Exp_3$Standardize <- as.numeric(MF_Exp_3$Standardize)
+MF_Exp_3$Education_Score <- as.numeric(MF_Exp_3$Education_Score)
+MF_Exp_3$Income_Score <- as.numeric(MF_Exp_3$Income_Score)
+MF_Exp_3$Ideology_Score <- as.numeric(MF_Exp_3$Ideology_Score)
+
+
+#Run linear regression and produce coefficient values:
+fit_Standardize_MF_T_4 = glm(T_Dummy ~ Source, data = MF_Exp_3)
+#Produce clustere standard errors:
+CI_Standardize_MF_T_4 <- coefci(fit_Standardize_MF_T_4, vcov. = vcovCL(fit_Standardize_MF_T_4, cluster = list(MF_Exp_3$ResponseId), type = "HC0"))
+
+lin_results_Standardize_MF_T_4 = coeftest(fit_Standardize_MF_T_4, vcov. = vcovCL(fit_Standardize_MF_T_4, cluster = list(MF_Exp_3$ResponseId), type = "HC0"))
+
+#Number of observations:
+Obs_Tab_3_6 <- nrow(MF_Exp_3)
+#R-squared
+Rsq_Tab_3_6 <- rsq(fit_Standardize_MF_T_4)
+A_Rsq_Tab_3_6 <- rsq(fit_Standardize_MF_T_4,adj=TRUE)
+A_Rsq_Tab_3_6 <- round(A_Rsq_Tab_3_6,3)
+Rsq_Tab_3_6 <- round(Rsq_Tab_3_6,3)
+
+
+#F-statistic
+glm.0 <- glm(T_Dummy ~ 1,data=MF_Exp_3)
+Results <- anova(fit_Standardize_MF_T_4, glm.0, test="F")
+F_Tab_3_6 <- Results$F[2]
+F_Tab_3_6 <- round(F_Tab_3_6,3)
+F_Tab_3_6 <- paste0(F_Tab_3_6,'^{***}')
+
+Search_Articles_12 <- unique(MF_Exp_3$Article_day)
+
+
+
+
+#(Hypothesis 1.1) Standardized: Effect of Headline
+Exp_3_Data <- rbind(Experiment_3_Data,Experiment_3_Data_T)
+
+Exp_3_Data$Headline <- as.numeric(Exp_3_Data$Headline)
+Exp_3_Data$Source <- as.numeric(Exp_3_Data$Source)
+Exp_3_Data$Article <- as.numeric(Exp_3_Data$Article)
+Exp_3_Data$Dummy_Congruence <- as.numeric(Exp_3_Data$Dummy_Congruence)
+Exp_3_Data$Ideology_Score <- as.numeric(Exp_3_Data$Ideology_Score)
+
+Full_Data <- Exp_3_Data %>% filter(Source == 0)
+
+MF_Exp_3 <- Full_Data %>% select(Match_FC,Headline,Education_Score,Age,Gender,Income_Score,Dummy_Congruence,Familiar_Dummy,Article_day,ResponseId,Ideology_Score)
+#Remove NA values:
+MF_Exp_3 <- na.omit(MF_Exp_3)
+
+
+MF_Exp_3$Match_FC <- as.numeric(MF_Exp_3$Match_FC)
+MF_Exp_3$Age <- as.numeric(MF_Exp_3$Age)
+MF_Exp_3$Education_Score <- as.numeric(MF_Exp_3$Education_Score)
+MF_Exp_3$Income_Score <- as.numeric(MF_Exp_3$Income_Score)
+MF_Exp_3$Ideology_Score <- as.numeric(MF_Exp_3$Ideology_Score)
+
+
+MF_Exp_3$Headline = ifelse(MF_Exp_3$Headline == 1,0,1)
+
+#Run linear regression and produce coefficient values:
+fit_Headline_MF_T_1 = glm(Match_FC ~ Headline, data = MF_Exp_3)
+#Produce clustere standard errors:
+CI_Headline_MF_T_1 <- coefci(fit_Headline_MF_T_1, vcov. = vcovCL(fit_Headline_MF_T_1, cluster = list(MF_Exp_3$ResponseId), type = "HC0"))
+
+lin_results_Headline_MF_T_1 = coeftest(fit_Headline_MF_T_1, vcov. = vcovCL(fit_Headline_MF_T_1, cluster = list(MF_Exp_3$ResponseId), type = "HC0"))
+
+#Number of observations:
+Obs_Tab_4_1 <- nrow(MF_Exp_3)
+#R-squared
+Rsq_Tab_4_1 <- rsq(fit_Headline_MF_T_1)
+A_Rsq_Tab_4_1 <- rsq(fit_Headline_MF_T_1,adj=TRUE)
+A_Rsq_Tab_4_1 <- round(A_Rsq_Tab_4_1,3)
+Rsq_Tab_4_1 <- round(Rsq_Tab_4_1,3)
+
+
+#F-statistic
+glm.0 <- glm(Match_FC ~ 1,data=MF_Exp_3)
+Results <- anova(fit_Headline_MF_T_1, glm.0, test="F")
+F_Tab_4_1 <- Results$F[2]
+F_Tab_4_1 <- round(F_Tab_4_1,3)
+F_Tab_4_1 <- paste0(F_Tab_4_1,'^{***}')
+
+Search_Articles_15 <- unique(MF_Exp_3$Article_day)
+
+
+
+
+
+#(Hypothesis 1.2) With Source: Effect of Headline
+Exp_3_Data <- rbind(Experiment_3_Data,Experiment_3_Data_T)
+
+Exp_3_Data$Headline <- as.numeric(Exp_3_Data$Headline)
+Exp_3_Data$Source <- as.numeric(Exp_3_Data$Source)
+Exp_3_Data$Article <- as.numeric(Exp_3_Data$Article)
+Exp_3_Data$Dummy_Congruence <- as.numeric(Exp_3_Data$Dummy_Congruence)
+Exp_3_Data$Ideology_Score <- as.numeric(Exp_3_Data$Ideology_Score)
+
+Full_Data <- Exp_3_Data %>% filter(Source == 1)
+
+MF_Exp_3 <- Full_Data %>% select(Match_FC,Headline,Education_Score,Age,Gender,Income_Score,Dummy_Congruence,Familiar_Dummy,Article_day,ResponseId,Ideology_Score)
+#Remove NA values:
+MF_Exp_3 <- na.omit(MF_Exp_3)
+
+
+MF_Exp_3$Match_FC <- as.numeric(MF_Exp_3$Match_FC)
+MF_Exp_3$Age <- as.numeric(MF_Exp_3$Age)
+MF_Exp_3$Education_Score <- as.numeric(MF_Exp_3$Education_Score)
+MF_Exp_3$Income_Score <- as.numeric(MF_Exp_3$Income_Score)
+MF_Exp_3$Ideology_Score <- as.numeric(MF_Exp_3$Ideology_Score)
+
+MF_Exp_3$Headline = ifelse(MF_Exp_3$Headline == 1,0,1)
+
+
+#Run linear regression and produce coefficient values:
+fit_Headline_MF_T_2 = glm(Match_FC ~ Headline, data = MF_Exp_3)
+#Produce clustere standard errors:
+CI_Headline_MF_T_2 <- coefci(fit_Headline_MF_T_2, vcov. = vcovCL(fit_Headline_MF_T_2, cluster = list(MF_Exp_3$ResponseId), type = "HC0"))
+
+lin_results_Headline_MF_T_2 = coeftest(fit_Headline_MF_T_2, vcov. = vcovCL(fit_Headline_MF_T_2, cluster = list(MF_Exp_3$ResponseId), type = "HC0"))
+
+#Number of observations:
+Obs_Tab_4_2 <- nrow(MF_Exp_3)
+#R-squared
+Rsq_Tab_4_2 <- rsq(fit_Headline_MF_T_2)
+A_Rsq_Tab_4_2 <- rsq(fit_Headline_MF_T_2,adj=TRUE)
+A_Rsq_Tab_4_2 <- round(A_Rsq_Tab_4_2,3)
+Rsq_Tab_4_2 <- round(Rsq_Tab_4_2,3)
+
+
+#F-statistic
+glm.0 <- glm(Match_FC ~ 1,data=MF_Exp_3)
+Results <- anova(fit_Headline_MF_T_2, glm.0, test="F")
+F_Tab_4_2 <- Results$F[2]
+F_Tab_4_2 <- round(F_Tab_4_2,3)
+F_Tab_4_2 <- paste0(F_Tab_4_2,'^{***}')
+
+Search_Articles_16 <- unique(MF_Exp_3$Article_day)
+
+
+
+
+
+
+
+
+
+##  TABLES  ---  Categorical Score:
+
+
+write(stargazer(lin_results_Headline_MF_T_1,
+                lin_results_Headline_MF_T_2,
+                lin_Search_Separate_MF_T_2,
+                lin_Search_Separate_MF_T_1,
+                model.numbers=FALSE,
+                column.labels=c("(H1.1)","(H1.2)","(H3.1)","(H3.2)"),
+                title="Measuring Effect of Additional Information on Matching the Fact-Checker's Evaluation Without Conditioning on Control Variables",
+                align=TRUE,
+                omit = c(Search_Articles_1,Search_Articles_2,Search_Articles_3,
+                         Search_Articles_7,Search_Articles_8,Search_Articles_11,Search_Articles_12,
+                         Search_Articles_15,Search_Articles_16,
+                         'Constant','GenderOther'),
+                covariate.labels = c('Treatment (Full Text)','Treatment (Search)'),
+                star.cutoffs = c(0.05, 0.01, 0.001),
+                add.lines = list(c("Observations",Obs_Tab_1_1,Obs_Tab_4_1,Obs_Tab_4_2),
+                                 c("R-squared",Rsq_Tab_1_1,Rsq_Tab_4_1,Rsq_Tab_4_2),
+                                 c("Adj. R-squared",A_Rsq_Tab_1_1,A_Rsq_Tab_4_1,A_Rsq_Tab_4_2),
+                                 c("F-Statistic",F_Tab_1_1,F_Tab_4_1,F_Tab_4_2))),file='.//tables//Table_1_JEPS_No_Controls.txt')
+
+
+
+
+write(stargazer(lin_results_Standardize_MF_T_1,
+                lin_results_Standardize_MF_T_2,
+                lin_results_Standardize_MF_T_3,
+                lin_results_Standardize_MF_T_4,
+                lin_Search_Separate_MF_T_3,
+                model.numbers=FALSE,
+                column.labels=c("(H2.1)","(H2.2)","(H2.3)","(H2.4)","(H3.3)"),
+                title="Measuring Effect of Additional Information on Rating an Article as True Without Conditioning on Control Variables",
+                align=TRUE,
+                omit = c(Search_Articles_1,Search_Articles_2,Search_Articles_3,
+                         Search_Articles_7,Search_Articles_8,Search_Articles_11,Search_Articles_12,
+                         Search_Articles_15,Search_Articles_16,
+                         'Constant','GenderOther'),
+                covariate.labels = c('Treatment (Source)','Treatment (Search)','Education','Age','Gender (Male)','Income','Ideology'),
+                star.cutoffs = c(0.05, 0.01, 0.001),
+                add.lines = list(c("Observations",Obs_Tab_1_2,Obs_Tab_1_3,Obs_Tab_3_1,Obs_Tab_3_2,Obs_Tab_3_5,Obs_Tab_3_6),
+                                 c("R-squared",Rsq_Tab_1_2,Rsq_Tab_1_3,Rsq_Tab_3_1,Rsq_Tab_3_2,Rsq_Tab_3_5,Rsq_Tab_3_6),
+                                 c("Adj. R-squared",A_Rsq_Tab_1_2,A_Rsq_Tab_1_3,A_Rsq_Tab_3_1,A_Rsq_Tab_3_2,A_Rsq_Tab_3_5,A_Rsq_Tab_3_6),
+                                 c("F-Statistic",F_Tab_1_2,F_Tab_1_3,F_Tab_3_1,F_Tab_3_2,F_Tab_3_5,F_Tab_3_6))),file='.//tables//Table_2_JEPS_No_Controls.txt')
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

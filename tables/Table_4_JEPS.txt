@@ -1,6 +1,6 @@
 
 % Table created by stargazer v.5.2.2 by Marek Hlavac, Harvard University. E-mail: hlavac at fas.harvard.edu
-% Date and time: Mon, Jul 26, 2021 - 11:59:44
+% Date and time: Wed, Jul 28, 2021 - 15:32:40
 % Requires LaTeX packages: dcolumn 
 \begin{table}[!htbp] \centering 
   \caption{Measuring Effect of Additional Information on Matching the Fact-Checker's Evaluation - Categorical (Logistic Regression)} 

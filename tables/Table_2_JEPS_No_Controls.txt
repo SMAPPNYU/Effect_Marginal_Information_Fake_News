@@ -1,0 +1,31 @@
+
+% Table created by stargazer v.5.2.2 by Marek Hlavac, Harvard University. E-mail: hlavac at fas.harvard.edu
+% Date and time: Wed, Jul 28, 2021 - 15:32:45
+% Requires LaTeX packages: dcolumn 
+\begin{table}[!htbp] \centering 
+  \caption{Measuring Effect of Additional Information on Rating an Article as True Without Conditioning on Control Variables} 
+  \label{} 
+\begin{tabular}{@{\extracolsep{5pt}}lD{.}{.}{-3} D{.}{.}{-3} D{.}{.}{-3} D{.}{.}{-3} D{.}{.}{-3} } 
+\\[-1.8ex]\hline 
+\hline \\[-1.8ex] 
+ & \multicolumn{5}{c}{\textit{Dependent variable:}} \\ 
+\cline{2-6} 
+\\[-1.8ex] & \multicolumn{5}{c}{ } \\ 
+ & \multicolumn{1}{c}{(H2.1)} & \multicolumn{1}{c}{(H2.2)} & \multicolumn{1}{c}{(H2.3)} & \multicolumn{1}{c}{(H2.4)} & \multicolumn{1}{c}{(H3.3)} \\ 
+\hline \\[-1.8ex] 
+ Treatment (Source) & -0.072^{***} & 0.044^{**} & -0.062^{***} & -0.016 &  \\ 
+  & (0.015) & (0.013) & (0.015) & (0.015) &  \\ 
+  & & & & & \\ 
+ Treatment (Search) &  &  &  &  & 0.072^{***} \\ 
+  &  &  &  &  & (0.014) \\ 
+  & & & & & \\ 
+\hline \\[-1.8ex] 
+Observations & 2275 & 6269 & 4975 & 4141 & 4749 \\ 
+R-squared & 0.005 & 0.005 & 0.005 & 0.003 & 0.004 \\ 
+Adj. R-squared & 0.004 & 0.005 & 0.005 & 0.002 & 0.004 \\ 
+F-Statistic & 10.603^{***} & 34.468^{***} & 25.694^{***} & 11.145^{***} & 18.334^{***} \\ 
+\hline 
+\hline \\[-1.8ex] 
+\textit{Note:}  & \multicolumn{5}{r}{$^{*}$p$<$0.05; $^{**}$p$<$0.01; $^{***}$p$<$0.001} \\ 
+\end{tabular} 
+\end{table} 

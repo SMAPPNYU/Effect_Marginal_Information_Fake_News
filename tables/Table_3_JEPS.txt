@@ -1,6 +1,6 @@
 
 % Table created by stargazer v.5.2.2 by Marek Hlavac, Harvard University. E-mail: hlavac at fas.harvard.edu
-% Date and time: Mon, Jul 26, 2021 - 11:54:35
+% Date and time: Wed, Jul 28, 2021 - 15:32:37
 % Requires LaTeX packages: dcolumn 
 \begin{table}[!htbp] \centering 
   \caption{Measuring Effect of Additional Information on Rating an Article as True (Likert Score)} 
@@ -37,7 +37,7 @@
 \hline \\[-1.8ex] 
 Observations & 2275 & 6269 & 4975 & 4141 & 4749 \\ 
 R-squared & 0.022 & 0.021 & 0.016 & 0.006 & 0.012 \\ 
-Adj. R-squared & 0.019 & 0.019 & 0.015 & 0.004 & 0.01 \\ 
+Adj. R-squared & 0.019 & 0.02 & 0.015 & 0.004 & 0.01 \\ 
 F-Statistic & 7.204^{***} & 18.978^{***} & 11.84^{***} & 3.271^{***} & 7.884^{***} \\ 
 \hline 
 \hline \\[-1.8ex] 
